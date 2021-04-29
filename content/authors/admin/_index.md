@@ -4,8 +4,8 @@ role: Datas Scientist and Senior Developer at 23degrees.io
 bio: I am interested in Data, Artificial Intelligence and Software Engineering
 interests:
   - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Data-Engineering
+  - Software-Engineering
 social:
   - icon: envelope
     icon_pack: fas
@@ -40,6 +40,4 @@ email: ""
 superuser: true
 highlight_name: false
 ---
-
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/cv_eheil_2021_en.pdf" "newtab" >}}resumé{{< /staticref >}}.
