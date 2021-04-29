@@ -1,6 +1,7 @@
 ---
 title: Erich Heil
 role: Datas Scientist and Senior Developer at 23degrees.io
+avatar_filename: eheil.jpg
 bio: I am interested in Data, Artificial Intelligence and Software Engineering
 interests:
   - Artificial Intelligence
