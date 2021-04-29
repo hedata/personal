@@ -24,8 +24,8 @@ social:
     icon_pack: fab
     link: https://www.linkedin.com/
 organizations:
-  - name: Stanford University
-    url: https://www.stanford.edu/
+  - name: 23 degrees GmbH
+    url: https://app.23degrees.io
 education:
   courses:
     - course: PhD in Artificial Intelligence
