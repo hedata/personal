@@ -40,4 +40,4 @@ highlight_name: false
 ---
 Building data products since about 10 years. 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/cv_eheil_2021_en.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "assets/media/cv_eheil_2021_en.pdf" "newtab" >}}resumé{{< /staticref >}}.
