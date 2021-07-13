@@ -52,4 +52,10 @@ After installing the CLI, open a terminal in an empty directory and run
 ```bash
 lean init 
 ```
-to create a project.
+
+I already got some sample strategies in the cloud so lets log into lean
+and get my projects from the cloud
+```bash
+lean login
+lean cloud pull
+```

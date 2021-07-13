@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a8df876c-d4fe-4595-9f4b-087ab6367dfb/deploy-status)](https://app.netlify.com/sites/personalreboting/deploys)
+
+
 <p align="center"><a href="https://wowchemy.com" target="_blank" rel="noopener"><img src="https://wowchemy.com/img/logo_200px.png" alt="Wowchemy Website Builder"></a></p>
 
 # Academic Template for [Hugo](https://github.com/gohugoio/hugo)
