@@ -38,6 +38,6 @@ email: ""
 superuser: true
 highlight_name: false
 ---
-Building data products. Therefore interested in software architecture and data engineering and science.
+Building data products. Therefore interested in software architecture, data engineering and data science.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "assets/media/cv_eheil_2021_en.pdf" "newtab" >}}resumé{{< /staticref >}}.
