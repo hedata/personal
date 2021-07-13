@@ -1,42 +1,28 @@
 ---
 title: Testing QuantConnect Lean CLI
-subtitle: Having some holiday time taking the new QuantConnect Lean CLI for a spin and see how easy it is to get it up and running and backtest an easy strategy.
-
-# Summary for listings and search engines
-summary: Having some holiday time taking the new QuantConnect Lean CLI for a spin and see how easy it is to get it up and running and backtest an easy strategy.
-
-# Link this post with a project
-projects: []
-
-# Date published
-date: "2021-07-13T00:00:00Z"
-
-# Date updated
-lastmod: "2021-07-13T00:00:00Z"
-
-# Is this an unpublished draft?
+subtitle: Having some holiday time taking the new QuantConnect Lean CLI for a
+  spin and see how easy it is to get it up and running and backtest an easy
+  strategy.
+date: 2021-07-13T00:09:04.225Z
+summary: Having some holiday time taking the new QuantConnect Lean CLI for a
+  spin and see how easy it is to get it up and running and backtest an easy
+  strategy.
 draft: false
-
-# Show this page in the Featured widget?
 featured: false
-
-# Featured image
-# Place an image named `featured.jpg/png` in this page's folder and customize its options here.
+authors:
+  - admin
+lastmod: 2021-07-13T00:00:00Z
+tags:
+  - Algorithmic Trading
+  - Python
+categories:
+  - Fun
+projects: []
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
+  caption: "Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)"
   focal_point: ""
   placement: 2
   preview_only: false
-
-authors:
-- admin
-
-tags:
-- Algorithmic Trading
-- Python
-
-categories:
-- Fun
 ---
 
 ## QuantConnect Lean CLI
