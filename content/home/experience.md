@@ -43,9 +43,9 @@ experience:
     date_start: '2017-01-01'
     date_end: '2018-02-28'
     description: |2-
-          * Architecture and development of a CRM solution with included cash register software.
-          * Design and development of an Android app for carrying out inventories.
-          * C#, Java, JavaScript, SQL, MVVM, MySql, MongoDB, Angular, git, Jira
+        * Architecture and development of a CRM solution with included cash register software.
+        * Design and development of an Android app for carrying out inventories.
+        * C#, Java, JavaScript, SQL, MVVM, MySql, MongoDB, Angular, git, Jira
         
   - title: CTO and Founder
     company: Thrive GmbH
@@ -54,9 +54,9 @@ experience:
     date_start: '2016-01-01'
     date_end: '2017-12-31'
     description: |2-
-          * Architecture and development of a web-based data science platform.
-          * Tutorial Video: https://bit.ly/2Th32ls  
-          * Jupyter Notebooks, JavaScript, Python, MongoDB, Meteor, AWS, Docker, git, Jira, CI/CD, Monitoring
+        * Architecture and development of a web-based data science platform.
+        * Tutorial Video: https://bit.ly/2Th32ls  
+        * Jupyter Notebooks, JavaScript, Python, MongoDB, Meteor, AWS, Docker, git, Jira, CI/CD, Monitoring
         
   - title: Senior Expert and Head of Data Center
     company: Institute for Advanced Studies (IHS)
@@ -65,9 +65,9 @@ experience:
     date_start: '2013-12-01'
     date_end: '2015-12-31'
     description: |2-
-          * Establishment and management of a data center for data preparation, data documentation and data provision Infrastructure development and dissemination activities. 
-          * Design and implementation of data-based scientific commissioned studies for ministries and other stakeholders in the public sector. 
-          * Statistical modeling and exploratory data analysis - regression models and clustering methods.
-          * Python, SQL, PostgreSQL, Apache Hadoop, Hive, scikit-learn
+        * Establishment and management of a data center for data preparation, data documentation and data provision Infrastructure development and dissemination activities. 
+        * Design and implementation of data-based scientific commissioned studies for ministries and other stakeholders in the public sector. 
+        * Statistical modeling and exploratory data analysis - regression models and clustering methods.
+        * Python, SQL, PostgreSQL, Apache Hadoop, Hive, scikit-learn
 
 ---
