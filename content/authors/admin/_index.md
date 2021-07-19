@@ -40,4 +40,4 @@ highlight_name: false
 ---
 Building data products. Therefore interested in software architecture, data engineering and data science.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "assets/media/cv_eheil_2021_en.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my [resumé](https://bit.ly/3hPXpIf).
