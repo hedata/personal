@@ -35,7 +35,6 @@ implement and backtest a strategy advertised in [this video](https://www.youtube
 For strategy implementation and backtesting i will use [The Lean CLI](https://github.com/QuantConnect/lean-cli).
 [The Lean CLI](https://github.com/QuantConnect/lean-cli) is a cross-platform CLI aimed at making it easier to develop with the LEAN engine locally and in the cloud.
 
-
 Ok now onto the creation of the strategy. 
 Basically all strategies have the following steps
 
