@@ -1,23 +1,23 @@
 ---
-title: "reboting.com: Towards geo-search and visualization of austrian open data."
+title: "Analysis and visualization of Austria's social insurance system."
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
-- Sebastian Neumaier
+- Dominik Walch
 
 # Author notes (optional)
 author_notes:
 - "Equal contribution"
 - "Equal contribution"
 
-date: "2018-06-03T00:00:00Z"
+date: "2015-05-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2018-06-03T00:00:00Z"
+publishDate: "2015-05-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -26,15 +26,19 @@ publishDate: "2018-06-03T00:00:00Z"
 publication_types: ["1"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *European Semantic Web Conference*
-publication_short: In *ESWC*
+publication: In *SEMANTiCS (Posters & Demos)*
+publication_short: In *SEMANTiCS*
 
-abstract: Data portals mainly publish semi-structured, tabular formats which lack semantic descriptions of geo-entities and therefore, do not allow any exploration and automated visualization of these datasets. Herein, we present a framework to add geo-semantic labels, based on a constructed geo-entity knowledge graph, and a user interface to query and automatically visualize the resources from the Austrian data portals. The web-application is available at https://reboting.com/ .
+abstract: We analyze the Austrian social insurance system, focusing on the
+labor market as well as the pension system, on behalf of governmental institutions and other official stake holders.
+Visualizations play an increasingly important role. We present two examples from current projects – a very simply static one and a more complex interactive one – that both demonstrate the benefits of visualizations especially in communicating results and insights. We aim to outline the main steps of our workflow beginning with data transformation up to interactive visualizations.
 
 # Summary. An optional shortened abstract.
-summary: An interface that allows geo-queries for Austrian federal states and automatically generates visualization of respective open datasets. The geo-labelling of the dataset is based on a base knowledge graph of geo-entities.
+summary: We analyze the Austrian social insurance system, focusing on the
+labor market as well as the pension system, on behalf of governmental institutions and other official stake holders using interactive visualizations.
 
-tags: ["Linked Data", "Geo Labelling", "Data Visualization"]
+tags: ["Austrian Social Insurance Data", "Data", "Data Structures", "Interactive
+Visualizations", "Chord diagram", "Data Transformation", "Data Visualization"]
 
 # Display this page in the Featured widget?
 featured: true
@@ -44,8 +48,8 @@ featured: true
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'http://2018.eswc-conferences.org/files/posters-demos/paper_262.pdf'
-url_code: 'https://github.com/hedata/reboting'
+url_pdf: 'http://ceur-ws.org/Vol-1481/paper31.pdf'
+url_code: ''
 url_dataset: ''
 url_poster: ''
 url_project: ''
