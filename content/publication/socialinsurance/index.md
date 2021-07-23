@@ -29,13 +29,10 @@ publication_types: ["1"]
 publication: In *SEMANTiCS (Posters & Demos)*
 publication_short: In *SEMANTiCS*
 
-abstract: We analyze the Austrian social insurance system, focusing on the
-labor market as well as the pension system, on behalf of governmental institutions and other official stake holders.
-Visualizations play an increasingly important role. We present two examples from current projects – a very simply static one and a more complex interactive one – that both demonstrate the benefits of visualizations especially in communicating results and insights. We aim to outline the main steps of our workflow beginning with data transformation up to interactive visualizations.
+abstract: We analyze the Austrian social insurance system, focusing on the labor market as well as the pension system, on behalf of governmental institutions and other official stake holders. Visualizations play an increasingly important role. We present two examples from current projects – a very simply static one and a more complex interactive one – that both demonstrate the benefits of visualizations especially in communicating results and insights. We aim to outline the main steps of our workflow beginning with data transformation up to interactive visualizations.
 
 # Summary. An optional shortened abstract.
-summary: We analyze the Austrian social insurance system, focusing on the
-labor market as well as the pension system, on behalf of governmental institutions and other official stake holders using interactive visualizations.
+summary: We analyze the Austrian social insurance system, focusing on the labor market as well as the pension system, on behalf of governmental institutions and other official stake holders using interactive visualizations.
 
 tags: ["Austrian Social Insurance Data", "Data", "Data Structures", "Interactive
 Visualizations", "Chord diagram", "Data Transformation", "Data Visualization"]
