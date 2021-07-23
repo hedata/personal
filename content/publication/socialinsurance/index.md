@@ -1,5 +1,5 @@
 ---
-title: "Analysis and visualization of Austria's social insurance system."
+title: "Analysis and visualization of Austrias social insurance system."
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
