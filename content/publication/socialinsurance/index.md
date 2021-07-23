@@ -41,7 +41,7 @@ tags: ["Austrian Social Insurance Data", "Data", "Data Structures", "Interactive
 Visualizations", "Chord diagram", "Data Transformation", "Data Visualization"]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 # links:

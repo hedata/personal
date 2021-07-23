@@ -35,10 +35,10 @@ abstract: In Österreich, wie auch in anderen OECD Ländern, verstärken die dem
 # Summary. An optional shortened abstract.
 summary: We analyze impact of financial incentives for the pension system in austria.
 
-tags: ["Austrian Social Insurance Data", "Pensions", "IREA]
+tags: ["Austrian Social Insurance Data", "Pensions", "IREA"]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 # links:
