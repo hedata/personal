@@ -42,6 +42,14 @@ contact_links:
     icon_pack: fab
     name: DM Me
     link: 'https://bit.ly/erichx3'
+  - icon: github
+    icon_pack: fab
+    link: https://bit.ly/34h68w3
+    name: Follow Me
+  - icon: linkedin
+    icon_pack: fab
+    link: https://bit.ly/34zNFK4
+    name: Contact Me
   #- icon: skype
   #  icon_pack: fab
   #  name: Skype Me
