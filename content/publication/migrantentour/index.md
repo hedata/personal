@@ -14,11 +14,11 @@ authors:
 #- "Equal contribution"
 #- "Equal contribution"
 
-date: "2012-09-26T00:00:00Z"
+date: "2012-09-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2012-09-26T00:00:00Z"
+publishDate: "2012-09-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -30,12 +30,12 @@ publication_types: ["4"]
 #publication: In *SEMANTiCS (Posters & Demos)*
 #publication_short: In *SEMANTiCS*
 
-abstract: Die vorliegende Studie untersucht die Bedeutung von Beschäftigten mit ausländischer Staatsbürgerschaft bzw. mit Migrationshintergrund für den Tourismus und analysiert den Beitrag der Tourismuswirtschaft zur (Arbeitsmarkt-)Integration dieser Beschäftigtengruppe. Methodisch vereint die Studie zwei unterschiedliche Zugänge. Quantitative Aspekte werden anhand von anonymisierten Sozialversicherungsdaten analysiert. Qualitative Aspekte werden – methodisch komplementär zur Auswertung der Sozialversicherungsdaten – anhand von ExpertInneninterviews untersucht.
+abstract: Die vorliegende Studie untersucht die Bedeutung von Beschäftigten mit ausländischer Staatsbürgerschaft bzw. mit Migrationshintergrund für den Tourismus und analysiert den Beitrag der Tourismuswirtschaft zur (Arbeitsmarkt-)Integration dieser Beschäftigtengruppe. Methodisch vereint die Studie zwei unterschiedliche Zugänge. Quantitative Aspekte werden anhand von anonymisierten Sozialversicherungsdaten analysiert. Qualitative Aspekte werden – methodisch komplementär zur Auswertung der Sozialversicherungsdaten – anhand von ExpertInneninterviews untersucht. Sowohl die Auswertung von Beschäftigungsdaten als auch die Einschätzungen der befragten ExpertInnen unterstreichen die wechselseitige Bedeutung der Beziehung von Tourismus und MigrantInnen. Beschäftigte mit ausländischer Staatsbürgerschaft bzw. mit Migrationshintergrund haben große Bedeutung für den österreichischen Tourismus. Dies gilt für die Gegenwart sowie für die erfolgreiche Entwicklung dieser beschäftigungsintensiven Wachstumsbrache. Der gegenwärtig hohe Anteil an MigrantInnen im Tourismus ist das Ergebnis eines historischen Wandels des österreichischen Arbeitsmarktes, insbesondere im ländlichen Raum, der durch Internationalisierung der Unternehmen gekennzeichnet ist sowie der Entwicklung der österreichischen Niederlassungs-und Arbeitsmarktpolitik. Betrachtet man die Gesamtheit aller am österreichischen Arbeitsmarkt erwerbstätigen Personen mit ausländischer Staatsbürgerschaft, so spielt der Tourismus sowohl statisch als auch dynamisch eine große Rolle in der Arbeitsmarktintegration von MigrantInnen.
 
 # Summary. An optional shortened abstract.
 summary: Die vorliegende Studie untersucht die Bedeutung von Beschäftigten mit ausländischer Staatsbürgerschaft bzw. mit Migrationshintergrund für den Tourismus und analysiert den Beitrag der Tourismuswirtschaft zur (Arbeitsmarkt-)Integration dieser Beschäftigtengruppe.
 
-tags: ["Austrian Social Insurance Data", "Pensions", "Income"]
+tags: ["Austrian Social Insurance Data", "Tourism", "Migrants"]
 
 # Display this page in the Featured widget?
 featured: false
@@ -45,7 +45,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'https://drive.google.com/file/d/1w5lyHu9e8y-rRnyGJZrxsC9FPV8FZrVY/view?usp=sharing'
+url_pdf: 'https://www.ams-forschungsnetzwerk.at/downloadpub/Erwerbstaetige%20Migrantinnen%20im%20Tourismus.pdf'
 url_code: ''
 url_dataset: ''
 url_poster: ''
