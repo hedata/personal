@@ -1,5 +1,5 @@
 ---
-title: Reboting
+title: Reboting Open Data
 summary: chatbot that makes austria's geographical opendata queryable via visualizations for human beings.
 tags:
 - Linked Data
