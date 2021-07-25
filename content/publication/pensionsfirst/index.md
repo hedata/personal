@@ -1,23 +1,24 @@
 ---
-title: "Die Einkommenssituation von PensionistInnen. Pensionshöhen im Vergleich"
+title: "Erstzugänge in Eigenpension 2010: Arbeitsmarkt-und Branchenintegration von InvaliditätspensionszugängerInnen; Endbericht; Studie im Auftrag des bmask"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
+- Sophie Oberhauser
 - Dominik Walch
 
 # Author notes (optional)
-author_notes:
-- "Equal contribution"
-- "Equal contribution"
+#author_notes:
+#- "Equal contribution"
+#- "Equal contribution"
 
-date: "2015-02-01T00:00:00Z"
+date: "2014-09-26T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2015-02-01T00:00:00Z"
+publishDate: "2014-09-26T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -29,10 +30,10 @@ publication_types: ["4"]
 #publication: In *SEMANTiCS (Posters & Demos)*
 #publication_short: In *SEMANTiCS*
 
-abstract: Die Studie untersucht die Einkommenssituation von österreichischen Pensionisten und Pensionistinnen beispielhaft für das Jahr 2011. Grundlage dafür sind Administrativdaten aus der Arbeitsmarktdatenbank, der Pensionsversicherung Jahresstatistik und von Lohnzettelinformationen, die dem IHS in anonymisierter Form zur Verfügung stehen. Erfasst werden nicht nur Einkünfte aus gesetzlichen Pensionssystemen, sondern sämtliche Einkünfte, die der Kategorie Pension zugeordnet werden können. Die nach den verschiedenen Pensionsversicherungssysteme geleisteten Pensionen werden in den Statistiken einzeln abgebildet.
+abstract: Der vorliegende Bericht stellt eine erste Untersuchung zur Arbeitsmarktintegration vor dem Übertritt in die Invaliditätspension dar. Untersucht wurden die Zugänge des Jahres 2010. Besonderes Augenmerk gilt dem Aspekt der Wirtschaftsklasse, in der die PensionszugängerInnen vor Pensionsbeginn erwerbstätig waren. Für die Analyse der Arbeitsmarktintegration wurde ein Durchrechnungszeitraum von 60 Monaten vor Pensionsbeginn gewählt.
 
 # Summary. An optional shortened abstract.
-summary: We analyze the income for people in rent in the year 2011.
+summary: The present report is an initial study of labor market integration before transferring to the Invalidity pension. The additions in 2010 were examined. Particular attention is paid the aspect of the economic class in which the retirees are gainfully employed before they retire
 
 tags: ["Austrian Social Insurance Data", "Pensions", "Income"]
 
@@ -44,7 +45,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'https://irihs.ihs.ac.at/id/eprint/3132/1/Sonderpensionen%20Heil-Walch%2040793-Projektbericht.pdf'
+url_pdf: 'https://www.yumpu.com/de/document/read/22395329/ihs-projektbericht-pdf-3914-kb-'
 url_code: ''
 url_dataset: ''
 url_poster: ''
