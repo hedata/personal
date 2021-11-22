@@ -1,6 +1,6 @@
 ---
 title: Erich Heil
-role: Datas Scientist and Senior Developer
+role: Data Scientist and Senior Developer
 avatar_filename: ""
 bio: I am interested in Data, Artificial Intelligence and Software Engineering
 interests:
