@@ -38,8 +38,22 @@ With Python and Docker installed the ClI is only one command away.
 pip install --upgrade lean
 ```
 If you get some path warnings - add ~/.local/bin to your PATH environment variable.
+```bash
+echo "export PATH=~/.local/bin:\${PATH}" >> ~/.bashrc
+source ~/.bashrc
+```
 
-After installing the CLI, open a terminal in an empty directory and run 
+Test if lean is running
+```
+lean
+```
+
+If tkinter cannot be found as import
+```bash
+sudo apt-get install python3-tk
+```
+
+When everyhting works, open a terminal in an empty directory and run 
 ```bash
 lean init 
 ```
