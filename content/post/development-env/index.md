@@ -1,12 +1,8 @@
 ---
 title: Development Environment - tilt
-subtitle:  Having some holiday time taking the new QuantConnect Lean CLI for a
-  spin and see how easy it is to get it up and running and backtest a
-  strategy.
+subtitle:  Time to take some time and improve my development experience. 
 date: 2021-11-29T00:09:04.225Z
-summary: Having some holiday time taking the new QuantConnect Lean CLI for a
-  spin and see how easy it is to get it up and running and backtest a
-  strategy.
+summary: Setting up tilt with microk8s is easy
 draft: false
 featured: false
 authors:
