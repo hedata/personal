@@ -2,11 +2,15 @@
 title: Erich Heil
 role: Data Scientist and Senior Developer
 avatar_filename: ""
-bio: I am interested in Data, Artificial Intelligence and Software Engineering
+bio: Building data products.
 interests:
   - Artificial Intelligence
-  - Data-Engineering
-  - Software-Engineering
+  - Data visualization
+  - Deep Learning
+  - Domain driven desgin
+  - Big data
+  - IoT
+  - Streaming 
 social:
   - icon: envelope
     icon_pack: fas
@@ -38,6 +42,7 @@ email: ""
 superuser: true
 highlight_name: false
 ---
-Building data products. Therefore interested in software architecture, data engineering and data science.
+Building data products. 
+Therefore always learning to get better in designing software architectures, the process of software development and in the fields of data engineering and data science.
 
 {{< icon name="download" pack="fas" >}} Download my [resumé](https://bit.ly/3hPXpIf).
