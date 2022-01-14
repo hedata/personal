@@ -23,7 +23,7 @@ design:
   font_size_max: 2.0
   background:
     # Name of image in `assets/media/`.
-    image: popular.png
+    image: popular2.png
     image_darken: 1.0
     image_parallax: true
     image_position: center
