@@ -18,7 +18,7 @@ design:
   columns: "1"
   background:
     # Name of image in `assets/media/`.
-    image: artificalintelligence.png
+    image: ai2.png
     image_darken: 1.0
     image_parallax: true
     image_position: center
