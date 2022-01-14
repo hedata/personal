@@ -23,9 +23,9 @@ design:
     image_parallax: true
     image_position: center
     image_size: cover
-    text_color_light: false
-  #spacing:
-  #  padding: ["20px", "0", "20px", "0"]
+    text_color_light: true
+  spacing:
+    padding: ["20px", "0", "20px", "0"]
 # Choose the user profile to display
 # This should be the username (folder name) of a profile in your `content/authors/` folder.
 # See https://wowchemy.com/docs/get-started/#introduce-yourself
