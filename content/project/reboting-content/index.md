@@ -1,15 +1,14 @@
 ---
 title: Reboting Content
-summary: summary 
+summary: Webapplication that allows users to train an ai to find relevant content from continually scraped sources such as reddit.
 tags:
-- Linked Data
-- Geo Labelling
-- Data Visualization
-- Chatbot
-- Dialogflow
+- Webscraping
+- Fullstack
+- Tensorflow
+- Elasticsearcch
 
 date: "2018-04-27T00:00:00Z"
-active: false
+draft: true
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
