@@ -1,6 +1,6 @@
 ---
 title: Development Environment
-subtitle:  Time to take some time and improve my development experience for my home development and operations repository oribos. 
+subtitle:  Time to take some time and improve my development experience for my home development and operations repository Oribos. 
 date: 2021-11-29T00:09:04.225Z
 summary: Setting up tilt with k3ds is easy
 draft: true
