@@ -1,5 +1,5 @@
 ---
-title: "Erstzugänge in Eigenpension 2010: Arbeitsmarkt-und Branchenintegration von InvaliditätspensionszugängerInnen; Endbericht; Studie im Auftrag des bmask"
+title: "Erstzugänge in Eigenpension 2010: Arbeitsmarkt-und Branchenintegration von Invaliditätspensions- zugängerInnen"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 

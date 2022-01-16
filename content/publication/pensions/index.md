@@ -1,5 +1,5 @@
 ---
-title: "Auswirkungen von finanziellen Anreizen auf das Pensionsantrittsalter. Eine Analyse mit dem Mikrosimulationsmodell IREA; Endbericht; Studie im Auftrag des Bundesministeriums für Finanzen."
+title: "Auswirkungen von finanziellen Anreizen auf das Pensionsantrittsalter. Eine Analyse mit dem Mikrosimulationsmodell IREA"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 

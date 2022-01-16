@@ -1,5 +1,5 @@
 ---
-title: "Erwerbstätige MigrantInnen im Tourismus: Beitrag des touristischen Arbeitsmarktes zur Integration von Menschen mit Migrationshintergrund; Endbericht; Studie im Auftrag des bmwfj"
+title: "Erwerbstätige MigrantInnen im Tourismus: Beitrag des touristischen Arbeitsmarktes zur Integration von Menschen mit Migrationshintergrund"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 

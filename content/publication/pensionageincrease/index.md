@@ -1,5 +1,5 @@
 ---
-title: "Analyse einer Erhöhung des effektiven Pensionsantrittsalters: Vorläufiger Endbericht; Studie im Auftrag des Bundesministeriums für Finanzen"
+title: "Analyse einer Erhöhung des effektiven Pensionsantrittsalters"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 

@@ -27,4 +27,12 @@ content:
   
 design:
   columns: '2'
+  background:
+    # Name of image in `assets/media/`.
+    image: popular3.png
+    image_darken: 1.0
+    image_parallax: true
+    image_position: center
+    image_size: cover
+    text_color_light: true
 ---
