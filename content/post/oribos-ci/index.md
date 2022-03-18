@@ -24,3 +24,30 @@ image:
   placement: 2
   preview_only: false
 ---
+
+## Why
+Having to connect to a remote machine manually and pulling git repos and then starting up 
+a script manually is tedious. Furthermore its not very secure to get all our code onto production machines.
+
+## How
+Well that is the big question. How can i make this better?
+An option could be to 
+- create a github action pipeline for each service 
+- let that build a docker image and push it 
+- to a registry
+- then connect to a kubernetes cluster running the services and apply the changes (new image name)
+- creating kubernetes secrets for all env vars
+
+this would mean i need to setup / buy an image registry and setup a kubernetes cluster on a local machine
+- which is probably overhead. And i would also have to write and maintain yaml files for the kubernetes config and the kubernetes secrets.
+Thats doable and for a scalable experience the best option but a lot of effort also in regards that 
+i already have a super nice docker-compose config with env vars i can already deploy.
+
+Maybe having the secrets and env vars in files and pulling them to production is ok (we only have a single server anyway).
+Maybe just connecting to the remote server and executing some sh scripts and automating the manual tasks
+i did anyway is good enough?
+
+A quick google search reveals that at least the idea of executing remote ssh commands is not a new one :-) 
+[ssh-action](https://github.com/appleboy/ssh-action)
+
+So lets create a new ssh key pair - would be ludicrous to use my ssh key in a github action!
