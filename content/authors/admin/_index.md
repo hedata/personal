@@ -1,6 +1,6 @@
 ---
 title: Erich Heil
-role: Data Scientist and Senior Developer
+role: Lead Developer
 avatar_filename: ""
 bio: Building data products.
 interests:
@@ -28,8 +28,8 @@ social:
     icon_pack: fab
     link: https://bit.ly/34zNFK4
 organizations:
-  - name: 23 degrees GmbH
-    url: https://app.23degrees.io
+  - name: tech2people GmbH
+    url: https://www.tech2people.at/
 education:
   courses:
     - course: Diplomingenieur in Information and Knowledge Management

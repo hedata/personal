@@ -22,12 +22,34 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+  - title: Lead Developer
+    company: tech2people GmbH
+    company_url: 'https://www.tech2people.at/'
+    location: Austria
+    date_start: '2022-01-01'
+    date_end: ''
+    description: |2-
+        * Architecture and test-driven development of a platform for the evaluation and visualization of medical sensor data to support patients and therapists in everyday therapy.
+        * Design and implementation of ETL processes, data models, databases, as well as the conception and implementation of anonymization and accessibility concepts.
+        * Organization and execution of code reviews.
+        * TypeScript, Python, Docker, Azure, Angular, Azure Databricks, Azure App Service, Azure Data Factory
+  - title: Data Engineer
+    company: Zürich Versicherungs-AG
+    company_url: 'https://www.zurich.at/'
+    location: Austria
+    date_start: '2021-08-01'
+    date_end: '2021-11-30'
+    description: |2-
+        * Development of an Enterprise Search based on ElasticSearch.
+        * Conversion of deployment pipelines to Docker.
+        * Setup and monitoring of various cluster environments based on Openshift.
+        * TypeScript, ElasticSearch, Docker, Kubernetes, Azure DevOps, Openshift
   - title: Data Scientist and Senior Developer
     company: 23 degrees GmbH
     company_url: 'https://app.23degrees.io'
     location: Austria
     date_start: '2018-02-01'
-    date_end: ''
+    date_end: '2021-07-30'
     description: |2-
         * Architecture and test-driven development of a platform for the manual and automated creation of data visualizations. Visualizations can be embedded into websites. The platform processes more than 100 million requests for more than a million people per day. Furthermore, thousands of data sets are programmatically extracted from free statistics portals, transformed and loaded into the platform. From this, visualizations are automatically updated or newly created.
         * Design and implementation of ETL processes, data models, databases and data governance structures and data validation systems.
