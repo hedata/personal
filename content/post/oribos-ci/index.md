@@ -44,8 +44,21 @@ Thats doable and for a scalable experience the best option but a lot of effort a
 i already have a super nice docker-compose config with env vars i can already deploy.
 
 Maybe having the secrets and env vars in files and pulling them to production is ok (we only have a single server anyway).
-Maybe just connecting to the remote server and executing some sh scripts and automating the manual tasks
+Just connecting to the remote server and executing some sh scripts and automating the manual tasks
 i did anyway is good enough?
+
+This would then make the plan like this:
+- create a github action pipeline for each service 
+- the pipeline then builds a docker image and pushes it 
+- to a registry
+- the pipeline then connects to the deployment machine
+- updates the env and deployment repo
+- restarts the docker-compose file and triggers a rebuild for the service
+
+we have to watch out that image name is also changed for prod 
+
+need to check how this goes together with tilt and 
+automatic rebuild / code sync for images
 
 A quick google search reveals that at least the idea of executing remote ssh commands is not a new one :-) 
 [ssh-action](https://github.com/appleboy/ssh-action)
