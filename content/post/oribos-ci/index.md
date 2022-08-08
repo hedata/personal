@@ -44,23 +44,135 @@ Thats doable and for a scalable experience the best option but a lot of effort a
 i already have a super nice docker-compose config with env vars i can already deploy.
 
 Maybe having the secrets and env vars in files and pulling them to production is ok (we only have a single server anyway).
-Just connecting to the remote server and executing some sh scripts and automating the manual tasks
-i did anyway is good enough?
+Just connecting to the remote server and executing some sh scripts and automating the manual tasks i did anyway is good enough?
 
 This would then make the plan like this:
-- create a github action pipeline for each service 
-- the pipeline then builds a docker image and pushes it 
-- to a registry
-- the pipeline then connects to the deployment machine
-- updates the env and deployment repo
-- restarts the docker-compose file and triggers a rebuild for the service
+1. create a github action pipeline for each service which builds a docker image and pushes it to a registry
+2. adapt docker-compose so in prod it pulls images from the registry
+3. the pipeline then connects to the deployment machine restarts the docker-compose file and pulls the new images
 
-we have to watch out that image name is also changed for prod 
+## 1 Pipeline
+github has an amazing template for building a dockerimage and deploying it to a registry
+```yaml
+name: Docker
 
-need to check how this goes together with tilt and 
-automatic rebuild / code sync for images
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+on:
+  #schedule:
+  #  - cron: '42 1 * * *'
+  push:
+    branches: [master]
+    # Publish semver tags as releases.
+    tags: ["v*.*.*"]
+  pull_request:
+    branches: [master]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Install the cosign tool except on PR
+      # https://github.com/sigstore/cosign-installer
+      - name: Install cosign
+        if: github.event_name != 'pull_request'
+        uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
+        with:
+          cosign-release: "v1.7.1"
+
+      # Workaround: https://github.com/docker/build-push-action/issues/461
+      - name: Setup Docker buildx
+        uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
+
+      # Login against a Docker registry except on PR
+      # https://github.com/docker/login-action
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Extract metadata (tags, labels) for Docker
+      # https://github.com/docker/metadata-action
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      # Build and push Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # Sign the resulting Docker image digest except on PRs.
+      # This will only write to the public Rekor transparency log when the Docker
+      # repository is public to avoid leaking data.  If you would like to publish
+      # transparency data even for private images, pass --force to cosign below.
+      # https://github.com/sigstore/cosign
+      - name: Sign the published Docker image
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        # This step uses the identity token to provision an ephemeral certificate
+        # against the sigstore community Fulcio instance.
+        run: cosign sign ${{ steps.meta.outputs.tags }}@${{ steps.build-and-push.outputs.digest }}
+
+```
+## 2 adapt docker-compose so in prod it pulls images from the registry
+at the moment in docker-compose there are build descriptions like:
+```yaml
+build:
+      context: ./services/reboting_fulfillment
+      dockerfile: Dockerfile.dev
+```
+in prod we have to reference images like:
+```yaml
+image: traefik:2.5
+```
+meaing the build has to be removed and image has to be added.
+there are different options for solving this.
+1. use overrides in docker-compose
+2. use tilt to build local images
+
+for both options images can be changed via env vars
+
+
+
+## 3 pull images on deployment machine
+
 
 A quick google search reveals that at least the idea of executing remote ssh commands is not a new one :-) 
 [ssh-action](https://github.com/appleboy/ssh-action)
 
-So lets create a new ssh key pair - would be ludicrous to use my ssh key in a github action!
+So lets create a new ssh key pair with command 
+```bash
+ssh-keygen -t rsa -b 4096 -C -f ~/.ssh/reboting_cicd
+```
