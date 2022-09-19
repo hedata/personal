@@ -2,9 +2,9 @@
 title: Development Environment
 subtitle:  Time to take some time and improve my development experience for my home development and operations repository Oribos. 
 date: 2021-11-29T00:09:04.225Z
-summary: Setting up tilt with k3ds is easy
-draft: true
-featured: false
+summary: Planning a new personal development environment
+draft: false
+featured: true
 authors:
   - admin
 lastmod: 2021-11-29T00:00:00Z
@@ -33,5 +33,15 @@ and production containers that start server services.
 The new setup shall have some more convenience and be more in line with production environments
 - https/ssl support with valid certificates in development environment
 - ability to protect certain endpoints  
-- live reload out of the box. No more need for specific dockerfiles
+- code reloads on save in visual studio code
 - secure and unified secret management
+- easy deployment via github actions
+
+I started with k3d 
+- [K3d]({{< ref "/post/oribos-k3d" >}} "K3d")
+- [MongoDB]({{< ref "/post/oribos-mongodb" >}} "MongoDB")
+  
+but soon saw that for a personal environment going full on kubernetes
+is a bit of an overkill.
+
+So i stayed with docker-compose. 

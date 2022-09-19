@@ -163,12 +163,7 @@ there are different options for solving this.
 2. use tilt to build local images
 
 for both options images can be changed via env vars
-
-
-
 ## 3 pull images on deployment machine
-
-
 A quick google search reveals that at least the idea of executing remote ssh commands is not a new one :-) 
 [ssh-action](https://github.com/appleboy/ssh-action)
 

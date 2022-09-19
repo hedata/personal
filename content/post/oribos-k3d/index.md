@@ -2,8 +2,8 @@
 title: Locale Kubernetes Environment
 subtitle:  Trying out a locale kubernetes environment with tilt and k3d
 date: 2021-11-30T00:09:04.225Z
-summary: Setting up mongodb with tilt on k3d with mongoexpres as admin ui is easy
-draft: true
+summary: Setting up k3d with kubectl helm traefik and tilt
+draft: false
 featured: false
 authors:
   - admin
@@ -80,8 +80,7 @@ kubectl cluster-info
 
 as reverse proxy for ssl and auth we take [traefik](https://github.com/traefik/traefik/).
 for this we can use a ready helm chart
-lets [install helm](https://helm.sh/docs/intro/install/)
-
+[install helm](https://helm.sh/docs/intro/install/)
 
 ### Traefik
 add the chart repo

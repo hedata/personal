@@ -1,9 +1,9 @@
 ---
-title: Development Environment - mongodb
+title: Development Environment - mongodb with k3d and tilt
 subtitle:  Time to take some time and improve my development experience. 
 date: 2021-11-30T00:09:04.225Z
-summary: Setting up mongodb with tilt on k3d with mongoexpres as admin ui is easy
-draft: true
+summary: Setting up mongodb with tilt on k3d
+draft: false
 featured: false
 authors:
   - admin
@@ -25,8 +25,6 @@ image:
 ## Development Environment - tilt mongodb
 
 since k3d cluster is running inside docker if we want persistent volumes where we have access to them on our local machine we have to take extra care.
-
-
 
 A quick deployment file for the cluster. 
 
@@ -131,8 +129,8 @@ metadata:
   name: mongodb-secret
 type: Opaque
 data:
-  mongo-root-username: dXNlcm5hbWU=
-  mongo-root-password: cGFzc3dvcmQ=    
+  mongo-root-username: yourusername
+  mongo-root-password: yourpassword  
 ```
 add to cluster via tiltfile
 ```yaml
@@ -146,8 +144,6 @@ k8s_yaml('secrets/mongodb-secret.yaml');
 k8s_yaml('database/mongo/deployment.yaml');
 ```
 
-and also a [webinterface](https://github.com/huggingface/Mongoku) for querying. 
-
 start everything with tilt up
 
 you can check the volumes with:
@@ -160,23 +156,3 @@ watch everything with
 ```bash
 kubectl get all --all-namespaces
 ```
-
-
-## Authentication and Authorization and Routing
-
-A request is made for our Host ( e.g.: https://traefik.example.com)
-- The request is routed by our DNS provider to our WAN IP, where ports 80 and 443 are forwarded to the Traefik container.
-- Traefik sees the incoming request and recognizes that Forward Auth is defined in the labels for that Host, therefore the request is forwarded to the Traefik Forward Auth container.
-- The container then checks to see if the browser already has an authorized cookie. If there's no cookie, the request is sent to Google's OAuth2 Authorization Server.
-- After successfully logging in to Google, the request is sent to the redirect URI identified for the Web Application (https://oauth.example.com/_oauth).
-An authorized cookie is then saved in the browser, and the user is sent to the backend service.
-
-
-## Dns
-
-
-
-
-
-
-## Oauth
