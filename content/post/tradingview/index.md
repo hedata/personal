@@ -23,6 +23,12 @@ image:
 ---
 
 ## Trading view
-grab stuff from trading view via dagster 
+
+grab stuff from trading view via dagster.
+
 and save it to a db .. mongo or relational
 https://github.com/Mathieu2301/TradingView-API
+
+this cries for an orchestration tool for grabbing the data and updating it in a consistent manner.
+in comes [dagster](https://dagster.io/).
+ 
