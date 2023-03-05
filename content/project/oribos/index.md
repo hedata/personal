@@ -3,7 +3,7 @@ title: Development Environment
 subtitle:  Time to take some time and improve my development experience for my home development and operations repository Oribos. 
 date: 2021-11-29T00:09:04.225Z
 summary: Planning a new personal development environment
-draft: false
+draft: true
 featured: true
 authors:
   - admin
@@ -23,7 +23,23 @@ image:
   preview_only: false
 ---
 
-## DevOps repository for my own projects
+## DPersonal evOps repository for my own projects
+Personal development and operations repository.
+
+Helps if you want to create, run , monitor and maintain
+- web applications
+- apis
+- real time streams
+- databases
+- messaging systems
+- etl pipelines
+- machine learning models
+- persistent storage
+
+in a secure environment on your own server
+with your own domains (including subdomains)
+
+with dns and ssl via cloudflare
 
 Time to take some time and improve my development and operations experience for my own projects. 
 At the moment for my personal projects i have a docker-compose file for orchestration
