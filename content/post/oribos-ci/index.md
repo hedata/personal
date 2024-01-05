@@ -12,7 +12,7 @@ tags:
   - best practices
   - software architecture
   - data science
-  - 
+  -
 categories:
   - Fun
   - Coding
@@ -26,33 +26,40 @@ image:
 ---
 
 ## Why
-Having to connect to a remote machine manually and pulling git repos and then starting up 
+
+Having to connect to a remote machine manually and pulling git repos and then starting up
 a script manually is tedious. Furthermore its not very secure to get all our code onto production machines.
 
 ## How
+
 Well that is the big question. How can i make this better?
-An option could be to 
-- create a github action pipeline for each service 
-- let that build a docker image and push it 
+An option could be to
+
+- create a github action pipeline for each service
+- let that build a docker image and push it
 - to a registry
 - then connect to a kubernetes cluster running the services and apply the changes (new image name)
 - creating kubernetes secrets for all env vars
 
 this would mean i need to setup / buy an image registry and setup a kubernetes cluster on a local machine
+
 - which is probably overhead. And i would also have to write and maintain yaml files for the kubernetes config and the kubernetes secrets.
-Thats doable and for a scalable experience the best option but a lot of effort also in regards that 
-i already have a super nice docker-compose config with env vars i can already deploy.
+  Thats doable and for a scalable experience the best option but a lot of effort also in regards that
+  i already have a super nice docker-compose config with env vars i can already deploy.
 
 Maybe having the secrets and env vars in files and pulling them to production is ok (we only have a single server anyway).
 Just connecting to the remote server and executing some sh scripts and automating the manual tasks i did anyway is good enough?
 
 This would then make the plan like this:
+
 1. create a github action pipeline for each service which builds a docker image and pushes it to a registry
 2. adapt docker-compose so in prod it pulls images from the registry
 3. the pipeline then connects to the deployment machine restarts the docker-compose file and pulls the new images
 
 ## 1 Pipeline
+
 github has an amazing template for building a dockerimage and deploying it to a registry
+
 ```yaml
 name: Docker
 
@@ -144,30 +151,41 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: cosign sign ${{ steps.meta.outputs.tags }}@${{ steps.build-and-push.outputs.digest }}
-
 ```
+
 ## 2 adapt docker-compose so in prod it pulls images from the registry
+
 at the moment in docker-compose there are build descriptions like:
+
 ```yaml
 build:
-      context: ./services/reboting_fulfillment
-      dockerfile: Dockerfile.dev
+  context: ./services/reboting_fulfillment
+  dockerfile: Dockerfile.dev
 ```
+
 in prod we have to reference images like:
+
 ```yaml
 image: traefik:2.5
 ```
+
 meaing the build has to be removed and image has to be added.
 there are different options for solving this.
+
 1. use overrides in docker-compose
 2. use tilt to build local images
 
 for both options images can be changed via env vars
+
 ## 3 pull images on deployment machine
-A quick google search reveals that at least the idea of executing remote ssh commands is not a new one :-) 
+
+A quick google search reveals that at least the idea of executing remote ssh commands is not a new one :-)
 [ssh-action](https://github.com/appleboy/ssh-action)
 
-So lets create a new ssh key pair with command 
+So lets create a new ssh key pair with command
+
 ```bash
 ssh-keygen -t rsa -b 4096 -C -f ~/.ssh/reboting_cicd
 ```
+
+another option is to use watchtower and pull images on the server

@@ -2,13 +2,13 @@
 title: Reboting Content
 summary: Webapplication that allows users to train an ai to find relevant content from continually scraped sources such as reddit.
 tags:
-- Webscraping
-- Fullstack
-- Tensorflow
-- Elasticsearcch
+  - Webscraping
+  - Fullstack
+  - Tensorflow
+  - Elasticsearcch
 
-date: "2018-04-27T00:00:00Z"
-draft: true
+date: "2019-01-25T00:00:00Z"
+draft: false
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
