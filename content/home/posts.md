@@ -7,7 +7,7 @@ widget: pages
 headless: true
 
 # Order that this section appears on the page.
-weight: 60
+weight: 65
 
 title: Posts
 subtitle:
@@ -38,12 +38,12 @@ design:
   #   3 = Card
   #   4 = Citation (publication only)
   view: 3
-  background:
-    # Name of image in `assets/media/`.
-    image: ai3.png
-    image_darken: 1.0
-    image_parallax: true
-    image_position: center
-    image_size: cover
-    text_color_light: true
+  #background:
+  # Name of image in `assets/media/`.
+  #image: ai3.png
+  #image_darken: 1.0
+  #image_parallax: true
+  #image_position: center
+  #image_size: cover
+  #text_color_light: true
 ---
