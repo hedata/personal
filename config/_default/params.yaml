@@ -13,9 +13,9 @@ font_size: L
 # SEO
 
 site_type: Person
-local_business_type: ""
+local_business_type: "ProfessionalService"
 org_name: ""
-description: "Erich Heil personal page - datascience software development"
+description: "Erich Heil - ml engineering and software architecture consultant"
 twitter: ""
 
 # Contact (edit or remove options as required)
