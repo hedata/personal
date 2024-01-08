@@ -27,11 +27,11 @@ image:
   preview_only: false
 
 links:
-  url_project: "https://rebotradar.reboting.com/"
-  url_code: ""
-  url_pdf: ""
-  url_slides: ""
-  url_video: ""
+url_project: "https://rebotradar.reboting.com/"
+url_code: ""
+url_pdf: ""
+url_slides: ""
+url_video: ""
 
 # Slides (optional).
 #   Associate this project with Markdown slides.
