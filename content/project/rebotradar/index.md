@@ -1,13 +1,8 @@
 ---
 title: Rebotradar
 summary: Webapplication that allows users to train an ai to find relevant content from continually scraped sources such as reddit.
-tags:
-  - Webscraping
-  - Fullstack
-  - Tensorflow
-  - Elasticsearcch
 
-date: "2019-01-25T00:00:00Z"
+date: 2022-11-29T00:09:04.225Z
 draft: false
 featured: true
 # Optional external URL for project (replaces project detail page).
@@ -17,9 +12,11 @@ tags:
   - Express
   - Elasticsearch
   - Mongodb
+  - Tensorflow
 categories:
   - Fun
   - Coding
+  - Bots
 image:
   caption: ""
   focal_point: ""
