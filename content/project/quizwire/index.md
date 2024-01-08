@@ -1,8 +1,8 @@
 ---
 title: Quizwire
-subtitle: A bot for quizzes genereated on wikidata
+subtitle: A bot for quizzes generated on wikidata
 date: 2020-11-29T00:09:04.225Z
-summary: A bot for quizzes genereated on wikidata
+summary: A bot for quizzes generated on wikidata
 draft: false
 featured: true
 authors:
