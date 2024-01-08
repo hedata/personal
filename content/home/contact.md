@@ -14,8 +14,8 @@ subtitle:
 
 content:
   # Automatically link email and phone or display as text?
-  autolink: false
-  
+  autolink: true
+
   # Email form provider
   #form:
   #  provider: netlify
@@ -24,9 +24,9 @@ content:
   #  netlify:
   #    # Enable CAPTCHA challenge to reduce spam?
   #    captcha: false
-  
+
 design:
-  columns: '2'
+  columns: "2"
   background:
     # Name of image in `assets/media/`.
     image: popular3.png
