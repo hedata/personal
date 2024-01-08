@@ -70,12 +70,12 @@ Users engaging with QuizWire are presented with a series of multiple-choice ques
 
 Upon requesting a quiz, users are met with an enthusiastic challenge:
 
-"I will ask you a series of multiple choice Questions
-If you answer them right you get a point of Awesomeness!
-If you answer them wrong you lose a life.
-You have 5 lives.
-The quiz is over when you have 0 lives.
-Go Get that highscore!"
+> I will ask you a series of multiple choice Questions
+> If you answer them right you get a point of Awesomeness!
+> If you answer them wrong you lose a life.
+> You have 5 lives.
+> The quiz is over when you have 0 lives.
+> Go Get that highscore!
 
 This playful engagement is heightened by the visual element—each question is paired with an image of an actress, place, or thing, and users select from four possible answers, all actresses if the image is of an actress, for example.
 
