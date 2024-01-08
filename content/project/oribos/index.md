@@ -37,17 +37,6 @@ In the realm of personal project DevOps, the quest for efficiency and security i
 - Machine learning models
 - Persistent storage
 
-All these are to be housed securely on my server, complete with personalized domains and subdomains, fortified with DNS and SSL via Cloudflare.In the realm of personal project DevOps, the quest for efficiency and security is ongoing. I've embarked on a mission to refine my development and operations workflow, focusing on a suite of essential components. This endeavor aims to create, run, monitor, and maintain a variety of systems:
-
-- Web applications
-- APIs
-- Real-time data streams
-- Databases
-- Messaging systems
-- ETL pipelines
-- Machine learning models
-- Persistent storage
-
 All these are to be housed securely on my server, complete with personalized domains and subdomains, fortified with DNS and SSL via Cloudflare.
 
 **Current Setup and the Push for Enhancement**
