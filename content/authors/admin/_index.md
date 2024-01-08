@@ -1,6 +1,6 @@
 ---
 title: Erich Heil
-role: Lead Developer
+role: Consultant
 avatar_filename: ""
 bio: Building data products.
 interests:
@@ -27,9 +27,9 @@ social:
   - icon: linkedin
     icon_pack: fab
     link: https://bit.ly/34zNFK4
-organizations:
-  - name: tech2people GmbH
-    url: https://www.tech2people.at/
+#organizations:
+#  - name: tech2people GmbH
+#    url: https://www.tech2people.at/
 education:
   courses:
     - course: Diplomingenieur in Information and Knowledge Management
