@@ -24,56 +24,58 @@ image:
   preview_only: false
 ---
 
-## Personal DevOps repository for my own projects
+## Elevating My Development and Operations Workflow: A Journey in Personal DevOps
 
-Personal development and operations repository.
+In the realm of personal project DevOps, the quest for efficiency and security is ongoing. I've embarked on a mission to refine my development and operations workflow, focusing on a suite of essential components. This endeavor aims to create, run, monitor, and maintain a variety of systems:
 
-Helps if you want to create, run , monitor and maintain
+- Web applications
+- APIs
+- Real-time data streams
+- Databases
+- Messaging systems
+- ETL pipelines
+- Machine learning models
+- Persistent storage
 
-- web applications
-- apis
-- real time streams
-- databases
-- messaging systems
-- etl pipelines
-- machine learning models
-- persistent storage
+All these are to be housed securely on my server, complete with personalized domains and subdomains, fortified with DNS and SSL via Cloudflare.In the realm of personal project DevOps, the quest for efficiency and security is ongoing. I've embarked on a mission to refine my development and operations workflow, focusing on a suite of essential components. This endeavor aims to create, run, monitor, and maintain a variety of systems:
 
-in a secure environment on your own server
-with your own domains (including subdomains)
+- Web applications
+- APIs
+- Real-time data streams
+- Databases
+- Messaging systems
+- ETL pipelines
+- Machine learning models
+- Persistent storage
 
-with dns and ssl via cloudflare
+All these are to be housed securely on my server, complete with personalized domains and subdomains, fortified with DNS and SSL via Cloudflare.
 
-Time to take some time and improve my development and operations experience for my own projects.
-At the moment for my personal projects i have a docker-compose file for orchestration
-and a dev and production container definition file for dev containers that support live relead support
-and production containers that start server services.
+**Current Setup and the Push for Enhancement**
 
-The new setup shall have some more convenience and be more in line with production environments
+Currently, my setup revolves around Docker Compose for orchestration, with distinct container definitions for development and production. Development containers are configured for live reload support, while production ones are optimized to start server services efficiently.
 
-- https/ssl support with valid certificates in development environment
-- ability to protect certain endpoints
-- code reloads on save in visual studio code
-- secure and unified secret management
-- easy deployment via github actions
+However, I'm now looking to upgrade my setup to better align with professional production environments. Key enhancements include:
 
-I started with k3d
+- HTTPS/SSL support with valid certificates for the development environment
+- Enhanced endpoint security
+- Real-time code reloads in Visual Studio Code
+- A unified approach to secure secret management
+- Simplified deployment processes via GitHub Actions
 
-- [K3d]({{< ref "/post/oribos-k3d" >}} "K3d")
-- [MongoDB]({{< ref "/post/oribos-mongodb" >}} "MongoDB")
+Initially, I dabbled with [K3d]({{< ref "/post/oribos-k3d" >}} "K3d") and [MongoDB]({{< ref "/post/oribos-mongodb" >}} "MongoDB") , exploring the potential of a full Kubernetes setup. However, I realized that for my personal projects, this was perhaps too complex and resource-intensive, leading me back to the more manageable Docker Compose.
 
-but soon saw that for a personal environment going full on kubernetes
-is a bit of an overkill.
+**Integrating New Tools for Enhanced Functionality**
 
-So i stayed with docker-compose.
+To further refine my environment, I've incorporated several tools:
 
-I added
+- **Traefik:** Simplifies ingress routing and adds HTTPS support.
+- **OAuth2 Proxy:** Streamlines authentication processes.
+- **Portainer:** Offers hassle-free container management.
+- **Glances:** Provides a bird’s-eye view of system monitoring.
+- **Dnsmasq:** Facilitates easy DNS management.
 
-- traefik for easy ingress routing and https support
-- oauth2_proxy for easy authentication
-- portainer for easy container management
-- glances for easy system monitoring
-- dnsmasq for easy dns management
+Moreover, I'm currently evaluating [Watchtower](https://containrrr.dev/watchtower/) for automated container updates, aiming to ensure that my system remains up-to-date with minimal manual intervention.
 
-I am evaluating watchtower for automatic container updates
-https://containrrr.dev/watchtower/
+**Conclusion**
+
+This journey in personal DevOps is an ongoing process of learning and adaptation. By continually integrating new tools and practices, I aim to create a development and operations environment that is not only efficient and secure but also mirrors the sophistication of professional setups.
