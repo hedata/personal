@@ -33,8 +33,7 @@ experience:
         * Tech2People: Provided architectural and DevOps consultation to enhance their existing platform for medical sensor data analysis and visualization, supporting patients and therapists in therapy.
         * Technologies: TypeScript, Python, Docker, Azure suite (Databricks, App Service, Data Factory)
         * Canto: Built a cloud-native, event-driven platform to scale AI Visual Search for extensive customer datasets, achieving real-time, high-performance search across millions of assets.
-        * Technologies: Kubernetes, Python, Kafka, machine learning models, Milvus, ...
-
+        * Technologies: Kubernetes, Python, Kafka, machine learning models, Milvus
   - title: Lead Developer
     company: tech2people GmbH
     company_url: "https://www.tech2people.at/"
