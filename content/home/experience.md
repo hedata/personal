@@ -39,18 +39,7 @@ experience:
     company_url: "https://www.tech2people.at/"
     location: Austria
     date_start: "2022-01-01"
-    date_end: "2023-31-12"
-    description: |2-
-        * Architecture and test-driven development of a platform for the evaluation and visualization of medical sensor data to support patients and therapists in everyday therapy.
-        * Design and implementation of ETL processes, data models, databases, as well as the conception and implementation of anonymization and accessibility concepts.
-        * Organization and execution of code reviews.
-        * TypeScript, Python, Docker, Azure, Angular, Azure Databricks, Azure App Service, Azure Data Factory
-  - title: Lead Developer
-    company: tech2people GmbH
-    company_url: "https://www.tech2people.at/"
-    location: Austria
-    date_start: "2022-01-01"
-    date_end: "2023-31-12"
+    date_end: "2023-12-31"
     description: |2-
         * Architecture and test-driven development of a platform for the evaluation and visualization of medical sensor data to support patients and therapists in everyday therapy.
         * Design and implementation of ETL processes, data models, databases, as well as the conception and implementation of anonymization and accessibility concepts.
