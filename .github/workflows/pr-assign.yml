@@ -1,0 +1,34 @@
+name: Assign PR to maintainer
+
+# Every PR — dependabot, agent, cloud session — is assigned to and requests
+# review from the repo owner, so it lands in their GitHub inbox and phone
+# notifications. CODEOWNERS cannot do this here: code owners are inactive on
+# private repos without a paid plan. pull_request_target gives the token
+# write access for dependabot-authored PRs too; nothing from the PR is
+# checked out or executed.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, ready_for_review]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OWNER: ${{ github.repository_owner }}
+      PR: ${{ github.event.pull_request.number }}
+      AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+      - run: |
+          gh pr edit "$PR" -R "$GITHUB_REPOSITORY" --add-assignee "$OWNER"
+          if [ "$AUTHOR" = "$OWNER" ]; then
+            echo "author is the owner — no self review request"
+          else
+            gh pr edit "$PR" -R "$GITHUB_REPOSITORY" --add-reviewer "$OWNER"
+          fi
+          echo "✔ #$PR assigned to $OWNER"
