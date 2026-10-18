@@ -59,6 +59,17 @@ test('an empty private list is the same as none', () => {
   assert.match(r.out, /private list 0 entries/);
 });
 
+test('an invalid re: entry in the private list fails by position and never prints the entry', () => {
+  // Entry 2 of the list is a broken regular expression (made-up text).
+  const list = '# names\nzorbleflux\nre:(glorptwizzle[\nquuxwump\n';
+  const r = run([path.join(FIX, 'valid', 'index.md')], { POST_FORBIDDEN_WORDS: list });
+  assert.equal(r.status, 2, r.out);
+  assert.match(r.out, /❌ forbidden words: private list entry 2 is not a valid regex/);
+  assert.doesNotMatch(r.out, /glorptwizzle|zorbleflux|quuxwump/i, 'no entry text in the output');
+  assert.doesNotMatch(r.out, /SyntaxError|Invalid regular expression|\bat\b .*\.js:\d+/, 'no raw error or stack');
+  assert.doesNotMatch(r.out, /to check/, 'the scan never starts');
+});
+
 // A throw-away repository: master holds an old post that says "ben" (like the
 // two 2024 posts); a branch adds new posts. Only the branch's files are checked.
 function tempRepo() {

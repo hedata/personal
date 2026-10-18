@@ -18,7 +18,9 @@
 //   node scripts/check-forbidden-words.js FILE...                 # exactly these files (tests)
 // Options: --root DIR (git root, default cwd), --list FILE (default scripts/forbidden-words.txt).
 //
-// Exit 1 on any hit.
+// Exit 1 on any hit, 2 when a private-list entry is not a valid regular
+// expression (reported as "private list entry N is not a valid regex" — the
+// entry itself, and the SyntaxError that quotes it, never reach the log).
 
 const fs = require('node:fs');
 const path = require('node:path');
@@ -54,6 +56,20 @@ function compile(entry) {
   if (entry.startsWith('re:')) return new RegExp(entry.slice(3), 'giu');
   const escaped = entry.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
   return new RegExp(`(?<![\\p{L}\\p{N}_])${escaped}(?![\\p{L}\\p{N}_])`, 'giu');
+}
+
+// The private list is compiled entry by entry: an invalid `re:` entry must not
+// escape as an uncaught SyntaxError, whose message and stack quote the entry.
+// Throws an Error that names only the entry's position (1-based, comments and
+// blank lines not counted).
+function compilePrivateList(text) {
+  return parseList(text).map((entry, i) => {
+    try {
+      return compile(entry);
+    } catch {
+      throw new Error(`private list entry ${i + 1} is not a valid regex`);
+    }
+  });
 }
 
 // Files under content/ changed on the PR side (--base, three-dot) or by the
@@ -102,7 +118,13 @@ function main() {
   const opts = parseArgs(process.argv.slice(2));
   const publicPatterns = parseList(fs.readFileSync(opts.list, 'utf8')).map(compile);
   const privateEnv = process.env.POST_FORBIDDEN_WORDS;
-  const privatePatterns = parseList(privateEnv || '').map(compile);
+  let privatePatterns;
+  try {
+    privatePatterns = compilePrivateList(privateEnv || '');
+  } catch (e) {
+    console.log(`❌ forbidden words: ${e.message}`);
+    process.exit(2);
+  }
   const files = opts.files.length ? opts.files : changedFiles(opts);
 
   console.log(
@@ -128,4 +150,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { parseList, compile, scan };
+module.exports = { parseList, compile, compilePrivateList, scan };
