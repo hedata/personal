@@ -1,0 +1,3 @@
+# Fixture site config: Mermaid rendering switched off.
+math: false
+diagram: false

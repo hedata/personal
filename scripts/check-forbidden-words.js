@@ -24,7 +24,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { execFileSync } = require('node:child_process');
+const { changedFiles } = require('./lib/posts');
 
 const CONTENT_DIR = 'content/';
 
@@ -72,24 +72,6 @@ function compilePrivateList(text) {
   });
 }
 
-// Files under content/ changed on the PR side (--base, three-dot) or by the
-// pushed commits (--range). Deleted files are skipped.
-function changedFiles(opts) {
-  let args;
-  if (opts.base) {
-    args = ['diff', '--name-only', '--diff-filter=d', `${opts.base}...HEAD`, '--', CONTENT_DIR];
-  } else {
-    const [from, to] = opts.range.split(/\.{2,3}/);
-    if (!to) throw new Error(`--range needs BEFORE..AFTER, got "${opts.range}"`);
-    args = /^0+$/.test(from)
-      ? ['diff-tree', '--no-commit-id', '--name-only', '-r', '--diff-filter=d', to, '--', CONTENT_DIR]
-      : ['diff', '--name-only', '--diff-filter=d', from, to, '--', CONTENT_DIR];
-  }
-  return execFileSync('git', ['-C', opts.root, ...args], { encoding: 'utf8' })
-    .split('\n')
-    .filter(Boolean);
-}
-
 function isBinary(buf) {
   return buf.subarray(0, 8000).includes(0);
 }
@@ -125,7 +107,7 @@ function main() {
     console.log(`❌ forbidden words: ${e.message}`);
     process.exit(2);
   }
-  const files = opts.files.length ? opts.files : changedFiles(opts);
+  const files = opts.files.length ? opts.files : changedFiles(opts, CONTENT_DIR);
 
   console.log(
     `forbidden words: public list ${publicPatterns.length} entries, private list ` +

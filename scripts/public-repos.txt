@@ -1,0 +1,5 @@
+# Public repositories under github.com/hedata that a post may link to
+# (personal issue 7, EPU ADR-002). Checked by scripts/check-links.js: a link
+# into any other hedata/<repo> fails, whatever GitHub answers for it.
+# One repository name per line; `#` starts a comment.
+personal

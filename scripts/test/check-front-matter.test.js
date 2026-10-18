@@ -39,3 +39,18 @@ test('dates are accepted the way Hugo reads them (YAML timestamp)', () => {
     assert.notEqual(dateProblem(bad), null, bad);
   }
 });
+
+test('a post with a Mermaid block needs diagram: true in the site config', () => {
+  const FIXTURES = path.join(__dirname, 'fixtures');
+  const post = path.join(FIX, 'visual-ok', 'index.md');
+  let r = run('--root', path.join(FIXTURES, 'site-diagram-on'), post);
+  assert.equal(r.status, 0, r.out);
+
+  r = run('--root', path.join(FIXTURES, 'site-diagram-off'), post);
+  assert.equal(r.status, 1, r.out);
+  assert.match(r.out, /config\/_default\/params\.yaml: diagram is not true, but 1 post\(s\) use a ```mermaid block \(.*visual-ok\/index\.md\) — set `diagram: true`/);
+  assert.match(r.out, /❌ front matter: 0 of 1 posts have problems, and the site config does not render Mermaid/);
+
+  r = run('--root', path.join(FIXTURES, 'site-diagram-off'), path.join(FIX, 'valid', 'index.md'));
+  assert.equal(r.status, 0, r.out, 'no Mermaid, no requirement');
+});
