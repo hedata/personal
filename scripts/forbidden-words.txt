@@ -1,0 +1,24 @@
+# Public forbidden-words list for posts (personal issue 1, EPU ADR-002).
+# Checked by scripts/check-forbidden-words.js on the files under content/ that a
+# pull request adds or changes. One entry per line; `#` starts a comment.
+# A plain entry is matched as a whole word, case-insensitive.
+# An entry starting with `re:` is a regular expression (flags g i u).
+#
+# Household, family and client names do NOT belong here (the repo is public):
+# they live in the repository secret POST_FORBIDDEN_WORDS, same syntax, one
+# entry per line, and are never printed.
+
+# the project that must not be named
+ben
+ben_agent
+ben-agent
+hedata/ben
+
+# e-mail addresses
+re:[\w.+-]+@[\w-]+(\.[\w-]+)+
+
+# private hostnames
+re:\b[\w-]+(\.[\w-]+)*\.(internal|lan|local|home\.arpa)\b
+
+# IPv4-like addresses
+re:\b\d{1,3}(\.\d{1,3}){3}\b
