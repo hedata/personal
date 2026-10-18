@@ -1,0 +1,42 @@
+name: CI
+
+# Only what Netlify does not do: Netlify builds master on merge and a deploy
+# preview for every pull request (netlify.toml); no Hugo step here.
+#   1. front matter: every content/post/*/index.md has title, date, summary, draft
+#   2. forbidden words on the files under content/ this PR (or push) adds or
+#      changes — public list scripts/forbidden-words.txt, private list in the
+#      repository secret POST_FORBIDDEN_WORDS (optional, never printed).
+# Details: AGENTS.md, "CI".
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the diff needs the base branch and the pushed range
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests of the checks
+        run: node --test "scripts/test/*.test.js"
+      - name: Front matter
+        run: node scripts/check-front-matter.js
+      - name: Forbidden words on changed posts
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            node scripts/check-forbidden-words.js --base "origin/$GITHUB_BASE_REF"
+          else
+            node scripts/check-forbidden-words.js --range "$BEFORE..$GITHUB_SHA"
+          fi
+        env:
+          POST_FORBIDDEN_WORDS: ${{ secrets.POST_FORBIDDEN_WORDS }}
+          BEFORE: ${{ github.event.before }}
