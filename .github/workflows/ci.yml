@@ -2,10 +2,17 @@ name: CI
 
 # Only what Netlify does not do: Netlify builds master on merge and a deploy
 # preview for every pull request (netlify.toml); no Hugo step here.
-#   1. front matter: every content/post/*/index.md has title, date, summary, draft
+#   1. front matter: every content/post/*/index.md has title, date, summary,
+#      draft; a post with a ```mermaid block needs diagram: true in params.yaml
 #   2. forbidden words on the files under content/ this PR (or push) adds or
 #      changes — public list scripts/forbidden-words.txt, private list in the
 #      repository secret POST_FORBIDDEN_WORDS (optional, never printed).
+#   3. public links only: every URL in a changed post answers 2xx to an
+#      anonymous curl, and a GitHub link into hedata/<repo> names a repo
+#      listed in scripts/public-repos.txt
+#   4. at least one diagram or picture in every changed post
+#   5. a featured image with its source (featured.mmd / .svg / .source.md)
+#      in every changed post's folder
 # Details: AGENTS.md, "CI".
 
 on:
@@ -30,13 +37,23 @@ jobs:
         run: node --test "scripts/test/*.test.js"
       - name: Front matter
         run: node scripts/check-front-matter.js
-      - name: Forbidden words on changed posts
+      - name: Which posts this change touches
+        # The gates below look only at what the PR (or push) adds or changes.
         run: |
           if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-            node scripts/check-forbidden-words.js --base "origin/$GITHUB_BASE_REF"
+            echo "CHANGED=--base origin/$GITHUB_BASE_REF" >> "$GITHUB_ENV"
           else
-            node scripts/check-forbidden-words.js --range "$BEFORE..$GITHUB_SHA"
+            echo "CHANGED=--range $BEFORE..$GITHUB_SHA" >> "$GITHUB_ENV"
           fi
         env:
-          POST_FORBIDDEN_WORDS: ${{ secrets.POST_FORBIDDEN_WORDS }}
           BEFORE: ${{ github.event.before }}
+      - name: Forbidden words on changed posts
+        run: node scripts/check-forbidden-words.js $CHANGED
+        env:
+          POST_FORBIDDEN_WORDS: ${{ secrets.POST_FORBIDDEN_WORDS }}
+      - name: Public links only
+        run: node scripts/check-links.js $CHANGED
+      - name: At least one diagram or picture
+        run: node scripts/check-diagram-or-picture.js $CHANGED
+      - name: Featured image with its source
+        run: node scripts/check-featured-image.js $CHANGED

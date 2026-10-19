@@ -5,7 +5,10 @@
 // Every content/post/*/index.md must have `title`, `date`, `summary` and
 // `draft` in its YAML front matter, and `date` must parse the way Hugo reads
 // it: a YAML timestamp (YYYY-M-D, optional time, fraction and zone; month and
-// day may have one digit, as goyaml allows). No dependencies, node >= 18.
+// day may have one digit, as goyaml allows). And when any post has a
+// ```mermaid block, config/_default/params.yaml must say `diagram: true` —
+// Wowchemy renders Mermaid only then (personal issue 7, EPU ADR-003).
+// No dependencies, node >= 18.
 //
 //   node scripts/check-front-matter.js             # all posts under content/post
 //   node scripts/check-front-matter.js FILE...     # only these files (tests)
@@ -15,8 +18,10 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { hasMermaid } = require('./lib/posts');
 
 const REQUIRED = ['title', 'date', 'summary', 'draft'];
+const PARAMS = path.join('config', '_default', 'params.yaml');
 
 // YAML 1.1 timestamp as goyaml (and therefore Hugo) accepts it.
 const DATE_RE =
@@ -109,6 +114,22 @@ function checkFile(file) {
   return problems;
 }
 
+// True when the site's params.yaml has a top-level `diagram: true`.
+function diagramEnabled(root) {
+  const file = path.join(root, PARAMS);
+  if (!fs.existsSync(file)) return false;
+  const m = /^diagram:[ \t]*([^\s#]+)/m.exec(fs.readFileSync(file, 'utf8'));
+  return Boolean(m) && m[1] === 'true';
+}
+
+// The problem with the site config given the posts, or null.
+function diagramProblem(root, files) {
+  const mermaid = files.filter((f) => hasMermaid(fs.readFileSync(f, 'utf8')));
+  if (!mermaid.length || diagramEnabled(root)) return null;
+  const names = mermaid.map((f) => path.relative(root, f)).join(', ');
+  return `${PARAMS}: diagram is not true, but ${mermaid.length} post(s) use a \`\`\`mermaid block (${names}) — set \`diagram: true\`, Wowchemy renders Mermaid only then`;
+}
+
 function main() {
   const opts = parseArgs(process.argv.slice(2));
   const files = opts.files.length ? opts.files : listPosts(opts.root);
@@ -118,8 +139,10 @@ function main() {
     if (problems.length) bad++;
     for (const p of problems) console.log(`${path.relative(opts.root, file)}: ${p}`);
   }
-  if (bad) {
-    console.log(`❌ front matter: ${bad} of ${files.length} posts have problems`);
+  const diagram = diagramProblem(opts.root, files);
+  if (diagram) console.log(diagram);
+  if (bad || diagram) {
+    console.log(`❌ front matter: ${bad} of ${files.length} posts have problems` + (diagram ? ', and the site config does not render Mermaid' : ''));
     process.exit(1);
   }
   console.log(`✔ front matter: ${files.length} posts checked, all have title, date, summary and draft`);
@@ -127,4 +150,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { parseFrontMatter, dateProblem, checkFile };
+module.exports = { parseFrontMatter, dateProblem, checkFile, diagramEnabled, diagramProblem };
