@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Silence is not success">
+  <!-- hedata-epu title card. Filled by scripts/build-title-card.mjs: every {{…}} is a
+       path into tokens.json (colours, fonts) or one of title_lines, title_size,
+       subtitle (≤ 2 lines), subtitle_y, date, site.
+       1200×630 is the Open Graph size Wowchemy shows as the post's preview and banner. -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect x="0" y="0" width="16" height="630" fill="#1565c0"/>
+  <rect x="96" y="96" width="72" height="6" fill="#1565c0"/>
+  <text x="96" y="160" font-family="Montserrat, sans-serif, Helvetica, Arial, sans-serif" font-weight="400" font-size="64" fill="#313131"><tspan x="96" dy="0">Silence is not success</tspan></text>
+  <text x="96" y="224" font-family="Roboto, sans-serif, Helvetica, Arial, sans-serif" font-size="30" fill="#757575"><tspan x="96" dy="0">Four times in two weeks a check said nothing, and an agent read</tspan><tspan x="96" dy="39">that as yes</tspan></text>
+  <text x="96" y="556" font-family="Roboto, sans-serif, Helvetica, Arial, sans-serif" font-size="26" fill="#757575">2026-10-19</text>
+  <text x="1104" y="556" text-anchor="end" font-family="Montserrat, sans-serif, Helvetica, Arial, sans-serif" font-size="30" fill="#2b2b2b">reboting.com</text>
+</svg>
