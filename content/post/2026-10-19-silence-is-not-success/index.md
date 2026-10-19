@@ -16,13 +16,13 @@ categories:
 projects: []
 ---
 
-On 18 October an agent read the comments on an issue and found none. It ran `gh issue view 19 --comments`. The command printed nothing and exited 0. The issue had a thread. The agent went on as if nobody had said anything.
+On 17 October an agent ran `gh issue view 19 --comments` to read an issue thread. The command printed nothing and exited 0. The thread was in fact empty, so the output was right. But the command would have printed the same nothing for a thread full of comments. The agent had no way to know which one it got.
 
 A human sees an empty screen and hesitates. An agent sees exit code 0 and moves on.
 
 ## Exit 0 with no output is an answer, and it can be wrong
 
-I reproduced it the same day with gh 2.102.0. The text view with `--comments` was empty. The JSON view was not.
+I reproduced it the next day with gh 2.102.0. The text view printed nothing, with or without `--comments`. The JSON view worked.
 
 ```bash
 gh issue view 19 --comments        # no output, exit=0
@@ -30,7 +30,7 @@ gh issue view 19 --json body,comments   # works
 gh api repos/OWNER/REPO/issues/19/comments  # works
 ```
 
-The risk is not the bug. Tools have bugs. The risk is that a missing maintainer answer and a missing review verdict look exactly like "no maintainer answer yet". The fix is to read threads through the JSON view; I filed the case so the rule has a reason attached when it reaches the agent instructions.
+The risk is not the bug. Tools have bugs. The risk is that an empty thread and a broken command look identical, and a missing maintainer answer or review verdict reads as "no answer yet". The fix is to read threads through the JSON view; I filed the case so the rule has a reason attached when it reaches the agent instructions.
 
 ## A grep that finds nothing proves only that the grep is narrow
 
@@ -47,17 +47,17 @@ The second pattern also catches `${X:-latest}` defaults and `X=latest` in env fi
 
 ## A README is a check too, and it was silent in the wrong direction
 
-An audit of the same repo found documentation that described behaviour the code did not have. The README said a push deploys everything. The workflow deploys one target on push and the rest only on manual dispatch. An application was listed that no compose file ran. An experiment server's README said new users get no permissions. Its compose file gave every user read access to every experiment.
+An audit of the same repo found documentation that described behaviour the code did not have. The README said a push deploys everything. The workflow deploys one target on push and the rest only on manual dispatch. An application was listed that no compose file ran. An experiment server's README said new users get no permissions. Its compose file gave every member of the server's user group read access to every experiment.
 
 | README said | Compose said |
 |---|---|
 | `DEFAULT_MLFLOW_PERMISSION=NO_PERMISSIONS` | `DEFAULT_MLFLOW_PERMISSION: READ` |
 
-Nobody noticed because both files were plausible. I decided on no permissions and changed the compose file. Then I ran an architecture audit: 0 services missing from the docs, 0 documented services not in compose. That is a number I can ask for again.
+Both files read plausibly on their own. I decided on no permissions and changed the compose file. The README and workflow fixes were a separate change. After them I ran an architecture audit: 0 services missing from the docs, 0 documented services not in compose. It also found other mismatches, and those became their own issue. The audit is a number I can ask for again, but it was not a clean bill.
 
 ## A rule in a sentence is a check that never runs
 
-I had a rule that replies to me must link every issue and file in full. It sat in the agent instructions as a sentence. Agents broke it regularly. So I moved it into a hook that reads the final reply, blocks the stop once, and lists the bare references it found. A test session blocked "see ADR-009 and #16", accepted the rewrite, and the test file passes 14 of 14 cases.
+I had a rule that replies to me must link every issue and file in full. It sat in the agent instructions as a sentence. So I moved it into a hook that reads the final reply, blocks the stop once, and lists the bare references it found. A test session blocked "see ADR-009 and #16", accepted the rewrite, and the test file passes 14 of 14 cases.
 
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontFamily": "Roboto, Helvetica, Arial, sans-serif", "primaryColor": "#e8f1fb", "primaryTextColor": "#313131", "primaryBorderColor": "#1565c0", "secondaryColor": "#f7f7f7", "tertiaryColor": "#ffffff", "lineColor": "#34495e", "textColor": "#313131", "clusterBkg": "#f7f7f7", "clusterBorder": "#e6e6e6", "edgeLabelBackground": "#ffffff"}}}%%
