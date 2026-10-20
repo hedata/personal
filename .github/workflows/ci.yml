@@ -13,6 +13,9 @@ name: CI
 #   4. at least one diagram or picture in every changed post
 #   5. a featured image with its source (featured.mmd / .svg / .source.md)
 #      in every changed post's folder
+#   6. the theme files (data/themes, data/fonts, assets/scss/custom.scss) are
+#      what scripts/generate-theme.js makes of design/tokens.json — a hand
+#      edit of a generated file fails
 # Details: AGENTS.md, "CI".
 
 on:
@@ -37,6 +40,8 @@ jobs:
         run: node --test "scripts/test/*.test.js"
       - name: Front matter
         run: node scripts/check-front-matter.js
+      - name: Theme files are generated from the tokens
+        run: node scripts/generate-theme.js --check design/tokens.json
       - name: Which posts this change touches
         # The gates below look only at what the PR (or push) adds or changes.
         run: |
