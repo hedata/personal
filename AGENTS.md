@@ -41,6 +41,12 @@ Netlify auto-deploys from git; build settings in `netlify.toml`.
 
 The build itself is Netlify's: merge to `master` → deploy, pull request → deploy preview (`netlify.toml`).
 
+## After merge
+
+The project manager runs these on the agent workstation after every merge to `master` (never the maintainer; a PR lists them under "After merge (manager)"):
+
+1. `git -C /workspaces/personal pull --ff-only`. Nothing else: Netlify deploys `master` by itself.
+
 ## Conventions
 
 - YAML front matter on all content; homepage sections in `content/home/` use `widget:`/`weight:`/`active:` keys
