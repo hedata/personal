@@ -5,9 +5,9 @@
 
 # Appearance
 
-theme: minimal
+theme: hedata-epu
 day_night: true
-font: ""
+font: hedata-epu
 font_size: L
 
 # SEO
