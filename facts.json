@@ -1,0 +1,88 @@
+{
+  "home-light": {
+    "bodyClass": "page-wrapper",
+    "bodyBg": "rgb(255, 255, 255)",
+    "bodyFont": "roboto, sans-serif",
+    "headingFont": "montserrat, sans-serif",
+    "headingText": "Erich Heil",
+    "navFont": "roboto, sans-serif",
+    "navBg": "rgb(255, 255, 255)",
+    "linkColor": "rgb(255, 255, 255)",
+    "rootAccent": "#1565c0",
+    "bodyAccentVar": "#1565c0",
+    "fontsLoaded": [
+      "Font Awesome 5 Brands",
+      "Font Awesome 5 Free",
+      "Montserrat",
+      "Roboto"
+    ],
+    "css": [
+      "https://deploy-preview-12--reboting.netlify.app/css/wowchemy.05d18fe03301f297868bd2b79786add3.css"
+    ]
+  },
+  "home-dark": {
+    "bodyClass": "page-wrapper dark",
+    "bodyBg": "rgb(35, 37, 47)",
+    "bodyFont": "roboto, sans-serif",
+    "headingFont": "montserrat, sans-serif",
+    "headingText": "Erich Heil",
+    "navFont": "roboto, sans-serif",
+    "navBg": "rgb(40, 42, 54)",
+    "linkColor": "rgb(255, 255, 255)",
+    "rootAccent": "#1565c0",
+    "bodyAccentVar": "#bbdefb",
+    "fontsLoaded": [
+      "Font Awesome 5 Brands",
+      "Font Awesome 5 Free",
+      "Montserrat",
+      "Roboto"
+    ],
+    "css": [
+      "https://deploy-preview-12--reboting.netlify.app/css/wowchemy.05d18fe03301f297868bd2b79786add3.css"
+    ]
+  },
+  "post-light": {
+    "bodyClass": "page-wrapper",
+    "bodyBg": "rgb(255, 255, 255)",
+    "bodyFont": "roboto, sans-serif",
+    "headingFont": null,
+    "headingText": null,
+    "navFont": "roboto, sans-serif",
+    "navBg": "rgb(255, 255, 255)",
+    "linkColor": "rgba(0, 0, 0, 0.54)",
+    "rootAccent": "#1565c0",
+    "bodyAccentVar": "#1565c0",
+    "fontsLoaded": [
+      "Font Awesome 5 Brands",
+      "Font Awesome 5 Free",
+      "Montserrat",
+      "Roboto",
+      "Roboto Mono"
+    ],
+    "css": [
+      "https://deploy-preview-12--reboting.netlify.app/css/wowchemy.05d18fe03301f297868bd2b79786add3.css"
+    ]
+  },
+  "post-dark": {
+    "bodyClass": "page-wrapper dark",
+    "bodyBg": "rgb(35, 37, 47)",
+    "bodyFont": "roboto, sans-serif",
+    "headingFont": null,
+    "headingText": null,
+    "navFont": "roboto, sans-serif",
+    "navBg": "rgb(40, 42, 54)",
+    "linkColor": "rgba(255, 255, 255, 0.54)",
+    "rootAccent": "#1565c0",
+    "bodyAccentVar": "#bbdefb",
+    "fontsLoaded": [
+      "Font Awesome 5 Brands",
+      "Font Awesome 5 Free",
+      "Montserrat",
+      "Roboto",
+      "Roboto Mono"
+    ],
+    "css": [
+      "https://deploy-preview-12--reboting.netlify.app/css/wowchemy.05d18fe03301f297868bd2b79786add3.css"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+Screenshots of the Netlify deploy preview https://deploy-preview-12--reboting.netlify.app (personal PR 12, head 09a3947), taken headless with Chrome at 1280x1100, light = Wowchemy wcTheme 0, dark = wcTheme 1; facts.json holds the computed styles read from the same pages. Evidence only, never merged — delete this branch after the PR is merged.
