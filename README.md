@@ -1,40 +1,34 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a8df876c-d4fe-4595-9f4b-087ab6367dfb/deploy-status)](https://app.netlify.com/sites/personalreboting/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a8df876c-d4fe-4595-9f4b-087ab6367dfb/deploy-status)](https://app.netlify.com/sites/reboting/deploys)
 
+# reboting.com
 
-<p align="center"><a href="https://wowchemy.com" target="_blank" rel="noopener"><img src="https://wowchemy.com/img/logo_200px.png" alt="Wowchemy Website Builder"></a></p>
+The source of [reboting.com](https://reboting.com/), the personal page of Erich Heil — consultant, building data products, and therefore always learning to get better at designing software architectures, the process of software development, data engineering and data science. The page is where he writes it down: short posts on running software — infrastructure, development environments, deployment — each one with a diagram or a picture.
 
-# Academic Template for [Hugo](https://github.com/gohugoio/hugo)
+## How it is built
 
-The Hugo **Academic Resumé Template** empowers you to create your job-winning online resumé and showcase your academic publications.
+- A static site: [Hugo](https://gohugo.io/) 0.81.0 extended with the [Wowchemy Academic](https://github.com/wowchemy/wowchemy-hugo-modules) theme pulled in as a Hugo module (`go.mod`).
+- [Netlify](https://www.netlify.com/) builds `master` into the live site and every pull request into a deploy preview; the build command and the pinned Hugo version are in [`netlify.toml`](netlify.toml). The badge above is the `reboting` site's deploy status.
+- The look is derived, not hand-written: [`design/tokens.json`](design/tokens.json) is a copy of the hedata-epu design tokens (colour, type, spacing), and [`scripts/generate-theme.js`](scripts/generate-theme.js) turns it into the Wowchemy theme and font files and a block of CSS custom properties. CI fails when the generated files and the tokens disagree; how to take a new token version is in [`design/README.md`](design/README.md).
 
-[Check out the latest demo](https://academic-demo.netlify.app) of what you'll get in less than 10 minutes, or [view the showcase](https://wowchemy.com/user-stories/).
+## How posts get here
 
-[**Wowchemy**](https://wowchemy.com) makes it easy to create a beautiful website for free. Edit your site in Markdown, Jupyter, or RStudio (via Blogdown), generate it with Hugo, and deploy with GitHub or Netlify. Customize anything on your site with widgets, themes, and language packs.
+- An agent writes each post from a pitch the maintainer picked, on a branch, as a pull request.
+- Every pull request passes five CI gates (`scripts/check-*.js`, run by [`.github/workflows/ci.yml`](.github/workflows/ci.yml)): the front matter is complete, no forbidden word (private names, addresses, hosts), every link answers anonymously and points only at public repositories, the post shows a diagram or a picture, and the featured image is checked in with its source.
+- The maintainer reads the deploy preview and merges; Netlify publishes `master`.
 
-- 👉 [**Get Started**](https://wowchemy.com/templates/)
-- 📚 [View the **documentation**](https://wowchemy.com/docs/)
-- 💬 [Chat with the **Wowchemy community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@wowchemy](https://twitter.com/wowchemy) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithWowchemy](https://twitter.com/search?q=(%23MadeWithWowchemy%20OR%20%23MadeWithAcademic)&src=typed_query)
-- 💡 [Request a **feature** or report a **bug** for _Wowchemy_](https://github.com/wowchemy/wowchemy-hugo-modules/issues)
-- ⬆️ **Updating Wowchemy?** View the [Update Guide](https://wowchemy.com/docs/guide/update/) and [Release Notes](https://wowchemy.com/updates/)
+## Working on it
 
-## Crowd-funded open-source software
+Hugo 0.81.0 extended and Go (for the theme module) are the only tools; the checks are plain Node scripts without dependencies.
 
-To help us develop this template and software sustainably under the MIT license, we ask all individuals and businesses that use it to help support its ongoing maintenance and development via sponsorship.
+```bash
+hugo server                                                   # dev server with live reload (-D for drafts)
+node --test "scripts/test/*.test.js"                          # unit tests of the checks
+node scripts/check-front-matter.js                            # one of the five gates; the others take --base origin/master
+node scripts/generate-theme.js --check design/tokens.json     # the generated theme files match the tokens
+```
 
-### [❤️ Click here to unlock rewards with sponsorship](https://wowchemy.com/plans/)
+Layout, every command, the CI gates in detail and the conventions: [`AGENTS.md`](AGENTS.md).
 
-## Ecosystem
+## Licence
 
-* **[Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli):** Automatically import publications from BibTeX
-
-[![Screenshot](https://raw.githubusercontent.com/wowchemy/wowchemy-hugo-modules/master/academic.png)](https://wowchemy.com)
-
-## Demo image credits
-
-- [Open book](https://unsplash.com/photos/J4kK8b9Fgj8)
-- [Course](https://unsplash.com/photos/JKUTrJ4vK00)
-
-<!--
-[![Analytics](https://ga-beacon.appspot.com/UA-78646709-2/starter-academic/readme?pixel)](https://github.com/igrigorik/ga-beacon)
--->
+[MIT](LICENSE.md), inherited from the [Wowchemy Academic starter](https://github.com/wowchemy/starter-academic) by George Cushen, which this repository began as.
