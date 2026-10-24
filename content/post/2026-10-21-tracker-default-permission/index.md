@@ -18,9 +18,9 @@ MLflow is an open-source tool for tracking machine learning work: every training
 
 ## The default grant is the answer to every question nobody asked
 
-MLflow itself ships without logins. Access control comes through its auth feature or a plugin that signs users in through an OIDC identity provider ([MLflow's auth docs](https://mlflow.org/docs/latest/ml/auth/), [the plugin](https://github.com/mlflow-oidc/mlflow-oidc-auth)). Either way, a request is answered by walking a list of sources, the last being the default grant. I think it is the most important line in the configuration, because it governs everything that does not exist yet: every experiment, model and trace created next month, until somebody writes a more specific rule.
+MLflow's access control is opt-in: you switch on its auth feature at startup, or use a plugin that signs users in through an OIDC identity provider ([MLflow's auth docs](https://mlflow.org/docs/latest/ml/auth/), [the plugin](https://github.com/mlflow-oidc/mlflow-oidc-auth)). Either way, a request is answered by walking a list of sources, the last being the default grant. I think it is the most important line in the configuration, because it governs everything that does not exist yet: every experiment, model and trace created next month, until somebody writes a more specific rule.
 
-In the plugin the order is stated in a docstring of [its source](https://github.com/mlflow-oidc/mlflow-oidc-auth/blob/main/mlflow_oidc_auth/utils/grant_context.py): the first source holding a grant wins, in the order user, group, regex, group-regex, and the default applies when none does. A comment in the same code notes that since version 7.6.0 the default is no permissions, and that a default which grants means access "is being handed out by configuration rather than by an explicit permission record". I agree. A good default is no permissions, so that every access is a record somebody made on purpose.
+In the plugin the first source holding a grant wins, by default in the order user, group, regex, group-regex (an operator can reorder it), and the default applies when none does ([the resolution code](https://github.com/mlflow-oidc/mlflow-oidc-auth/blob/main/mlflow_oidc_auth/utils/grant_context.py)). Since version 7.6.0 that default is no permissions. The docstring of a function in [another file of the plugin](https://github.com/mlflow-oidc/mlflow-oidc-auth/blob/main/mlflow_oidc_auth/utils/permissions.py) explains why that matters: with a default which grants, access "is being handed out by configuration rather than by an explicit permission record". I agree. A good default is no permissions, so that every access is a record somebody made on purpose.
 
 ## What a good setup keeps, and for whom
 
@@ -38,10 +38,10 @@ flowchart TD
     G -- no --> X{"Regex grant?"}
     X -- yes --> K3["Keeps matches"]
     X -- no --> D["Default decides"]
-    D --> L["Default is nothing: no access to others' work, the default experiment or gateway endpoints"]
+    D --> L["Default is nothing: no access to others' work or to gateway endpoints"]
 ```
 
-Admins keep everything. Regular users keep everything they created themselves, since the creator receives full control on each new experiment, model and gateway endpoint. What they do not see is what colleagues created, and the built-in default experiment, which nobody created and which therefore has no creator grant to fall back on. Everything else is opened deliberately: per user, per group for what everybody may see, or by regex for a family of experiments.
+Admins keep everything; the plugin's docs say they bypass all permission checks. Regular users keep everything they created themselves, since MLflow's docs say the creator of an experiment, a registered model or a gateway resource automatically receives full control (the MANAGE permission) on it. What they do not see is what colleagues created. Everything else is opened deliberately: per user, per group for what everybody may see, or by regex for a family of experiments.
 
 The part that is easy to overlook is the model gateway, MLflow's front door for calling language models through managed endpoints. Endpoints an admin set up resolve through the same chain, so a script or application that calls the gateway with a non-admin account needs a grant too, and without one it gets a permission error far from anywhere a human would look. That is what the source says; I have not watched it happen. Traces make this matter most: they hold whatever users typed, and a default that reads everything shows all of it to the whole group.
 
