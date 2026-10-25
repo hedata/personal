@@ -13,7 +13,7 @@
     <text x="175" y="474" font-size="15" text-anchor="middle" fill="#313131">before</text>
     <text x="335" y="474" font-size="15" text-anchor="middle" fill="#313131">after</text>
     <text x="255" y="505" font-size="16" font-weight="700" text-anchor="middle" fill="#313131">The tool's own breakdown</text>
-    <text x="255" y="525" font-size="14" text-anchor="middle" fill="#757575">skills + system tools rows: no change</text>
+    <text x="255" y="525" font-size="14" text-anchor="middle" fill="#757575">the two rows the trim moved: no change</text>
     <rect x="560" y="170" width="130" height="280" fill="#90b8e8"/>
     <rect x="720" y="241" width="130" height="209" fill="#1565c0"/>
     <text x="625" y="160" font-size="18" font-weight="700" text-anchor="middle" fill="#313131">35,458</text>
