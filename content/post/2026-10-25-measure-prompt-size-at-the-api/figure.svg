@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-label="Bar chart in tokens. The tool's breakdown rows for skills and system tools: 10,500 before and 10,500 after. The API's first-request input: 35,458 before and 30,363 after, 5,095 fewer.">
+  <rect width="1000" height="540" fill="#ffffff"/>
+  <g font-family="Roboto, Helvetica, Arial, sans-serif">
+    <text x="40" y="44" font-size="22" font-weight="700" fill="#313131">Same trim, two readings (tokens)</text>
+    <text x="40" y="70" font-size="15" fill="#757575">Claude Code 2.1.305, 21 skill descriptions removed from the startup context</text>
+    <line x1="40" y1="450" x2="960" y2="450" stroke="#34495e" stroke-width="1.5"/>
+    <line x1="40" y1="229" x2="960" y2="229" stroke="#e6e6e6"/>
+    <line x1="40" y1="170" x2="960" y2="170" stroke="#e6e6e6"/>
+    <rect x="110" y="367" width="130" height="83" fill="#c9c9c9"/>
+    <rect x="270" y="367" width="130" height="83" fill="#757575"/>
+    <text x="175" y="357" font-size="18" font-weight="700" text-anchor="middle" fill="#313131">10,500</text>
+    <text x="335" y="357" font-size="18" font-weight="700" text-anchor="middle" fill="#313131">10,500</text>
+    <text x="175" y="474" font-size="15" text-anchor="middle" fill="#313131">before</text>
+    <text x="335" y="474" font-size="15" text-anchor="middle" fill="#313131">after</text>
+    <text x="255" y="505" font-size="16" font-weight="700" text-anchor="middle" fill="#313131">The tool's own breakdown</text>
+    <text x="255" y="525" font-size="14" text-anchor="middle" fill="#757575">skills + system tools rows: no change</text>
+    <rect x="560" y="170" width="130" height="280" fill="#90b8e8"/>
+    <rect x="720" y="241" width="130" height="209" fill="#1565c0"/>
+    <text x="625" y="160" font-size="18" font-weight="700" text-anchor="middle" fill="#313131">35,458</text>
+    <text x="785" y="231" font-size="18" font-weight="700" text-anchor="middle" fill="#313131">30,363</text>
+    <text x="625" y="474" font-size="15" text-anchor="middle" fill="#313131">before</text>
+    <text x="785" y="474" font-size="15" text-anchor="middle" fill="#313131">after</text>
+    <text x="705" y="505" font-size="16" font-weight="700" text-anchor="middle" fill="#313131">API, first-request input</text>
+    <text x="705" y="525" font-size="14" text-anchor="middle" fill="#757575">input + cache creation + cache read</text>
+    <line x1="690" y1="170" x2="880" y2="170" stroke="#313131" stroke-dasharray="4 4"/>
+    <line x1="870" y1="170" x2="870" y2="241" stroke="#313131" stroke-width="1.5"/>
+    <text x="920" y="200" font-size="17" font-weight="700" text-anchor="middle" fill="#2e8b2e">-5,095</text>
+    <text x="920" y="220" font-size="14" text-anchor="middle" fill="#2e8b2e">tokens</text>
+  </g>
+</svg>
