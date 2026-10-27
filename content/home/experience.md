@@ -24,12 +24,11 @@ date_format: Jan 2006
 experience:
   - title: Platform Engineer & Data Engineer
     company: ORF Österreichischer Rundfunk
-    company_url: "https://orf.at/"
     location: Austria
     date_start: "2026-05-01"
     date_end: ""
     description: |2-
-        * Platform engineering and data engineering, part-time, alongside my own consulting.
+        * Platform engineering and data engineering.
   - title: Software and Architecture Consultant
     company: EPU Erich Heil
     company_url: "https://reboting.com/"
@@ -37,7 +36,7 @@ experience:
     date_start: "2024-01-01"
     date_end: ""
     description: |2-
-        * Consulting through my own one-person company (EPU), alongside the ORF role, with limited hours and occasional engagements: agentic architecture, software architecture and ML engineering for mid-sized companies.
+        * I run my own consulting company. Next to the ORF I take on projects in software architecture, ML engineering and agentic systems for mid-sized companies.
         * ORF (09/2025 to 04/2026): data engineering on Databricks, with a focus on GDPR.
         * tech2people (01/2024 to 12/2025): architectural and DevOps consultation to enhance their existing platform for medical sensor data analysis and visualization, supporting patients and therapists in therapy.
         * Technologies: TypeScript, Python, Docker, Azure suite (Databricks, App Service, Data Factory)
