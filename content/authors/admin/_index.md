@@ -1,16 +1,17 @@
 ---
 title: Erich Heil
-role: Consultant
+role: Platform & Data Engineer at the ORF, consultant in my own EPU
 avatar_filename: ""
-bio: Building data products.
+bio: Platform and data engineering at the ORF, consulting on agentic architecture, personal projects on self-hosting and agentic coding.
 interests:
   - Artificial Intelligence
   - Data visualization
   - Deep Learning
-  - Domain driven desgin
+  - Domain driven design
   - Big data
   - IoT
   - Streaming
+  - AI agents
 social:
   - icon: envelope
     icon_pack: fas
@@ -43,7 +44,10 @@ superuser: true
 highlight_name: false
 ---
 
-Building data products.
-Therefore always learning to get better in designing software architectures, the process of software development and in the fields of data engineering and data science.
+I do three things at the moment:
+
+- **At the ORF** (Österreichischer Rundfunk) I work as platform engineer and data engineer, part-time, since May 2026. Before that I did data engineering for the ORF as a freelancer, on Databricks with a focus on GDPR.
+- **In my own one-person company (EPU)**, alongside the ORF and with limited hours, I take occasional consulting engagements on agentic architecture: software architecture and ML engineering for mid-sized companies. The most recent one was tech2people, 2024 to 2025.
+- **In my spare time** I build two things: a self-hosted infrastructure platform, my homelab, which I am starting to write about here; and agentic coding and loop engineering, the setup in which coding agents do development work for me. Its code stays private; the posts here describe it.
 
 {{< icon name="download" pack="fas" >}} Download my [resumé](https://bit.ly/3hPXpIf).

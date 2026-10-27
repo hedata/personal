@@ -22,6 +22,14 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+  - title: Platform Engineer & Data Engineer
+    company: ORF Österreichischer Rundfunk
+    company_url: "https://orf.at/"
+    location: Austria
+    date_start: "2026-05-01"
+    date_end: ""
+    description: |2-
+        * Platform engineering and data engineering, part-time, alongside my own consulting.
   - title: Software and Architecture Consultant
     company: EPU Erich Heil
     company_url: "https://reboting.com/"
@@ -29,10 +37,11 @@ experience:
     date_start: "2024-01-01"
     date_end: ""
     description: |2-
-        * As a consultant through my own single-member enterprise (EPU), I’ve worked on impactful projects for Tech2People and Canto:
-        * Tech2People: Provided architectural and DevOps consultation to enhance their existing platform for medical sensor data analysis and visualization, supporting patients and therapists in therapy.
+        * Consulting through my own one-person company (EPU), alongside the ORF role, with limited hours and occasional engagements: agentic architecture, software architecture and ML engineering for mid-sized companies.
+        * ORF (09/2025 to 04/2026): data engineering on Databricks, with a focus on GDPR.
+        * tech2people (01/2024 to 12/2025): architectural and DevOps consultation to enhance their existing platform for medical sensor data analysis and visualization, supporting patients and therapists in therapy.
         * Technologies: TypeScript, Python, Docker, Azure suite (Databricks, App Service, Data Factory)
-        * Canto: Built a cloud-native, event-driven platform to scale AI Visual Search for extensive customer datasets, achieving real-time, high-performance search across millions of assets.
+        * Canto: built a cloud-native, event-driven platform to scale AI Visual Search for extensive customer datasets, achieving real-time, high-performance search across millions of assets.
         * Technologies: Kubernetes, Python, Kafka, machine learning models, Milvus
   - title: Lead Developer
     company: tech2people GmbH
