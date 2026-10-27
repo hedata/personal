@@ -39,7 +39,6 @@ education:
     - course: Bachelor of Science in Media Informatics
       institution: Vienna University of Technology
       year: 2009
-email: "erichheil@gmail.com"
 superuser: true
 highlight_name: false
 ---
