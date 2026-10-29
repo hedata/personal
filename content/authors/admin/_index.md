@@ -46,7 +46,7 @@ highlight_name: false
 I do three things at the moment:
 
 - **At the ORF** (Österreichischer Rundfunk) I work as platform engineer and data engineer since May 2026. Before that I did data engineering for the ORF as a freelancer, on Databricks with a focus on GDPR.
-- **As a consultant** I run my own one-person company (EPU). Next to the ORF I take on consulting projects in software architecture, ML engineering and agentic systems for mid-sized companies. My most recent client was tech2people, 2024 to 2025.
+- **As a consultant** Next to the ORF I take on consulting projects in software architecture, ML engineering and agentic systems for mid-sized companies.
 - **In my spare time** I work on several projects of my own, whenever time allows. At the moment that is mostly my homelab, a self-hosted infrastructure platform, and building AI agents that do development work for me. The code is private for now; I am starting to write about some of it here.
 
 {{< icon name="download" pack="fas" >}} Download my [resumé](https://bit.ly/3hPXpIf).
