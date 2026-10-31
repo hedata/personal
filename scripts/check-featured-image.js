@@ -8,7 +8,8 @@
 // from, checked in next to it: featured.mmd (Mermaid text), featured.svg
 // (its own source), or featured.source.md naming where it came from (the
 // design project and brief, or the template and its parameters). A picture
-// alone fails: "featured image without source".
+// alone fails: "featured image without source". Posts with `draft: true` are
+// skipped — not published, so no picture yet (personal issue 25).
 //
 //   node scripts/check-featured-image.js --base origin/master   # PR: posts changed since the merge-base
 //   node scripts/check-featured-image.js --range BEFORE..AFTER   # push: posts changed by the pushed commits
@@ -17,7 +18,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { parseSelection, selectedPosts } = require('./lib/posts');
+const { parseSelection, publishedPosts } = require('./lib/posts');
 
 const IMAGE_EXT = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'];
 const SOURCES = ['featured.mmd', 'featured.svg', 'featured.source.md'];
@@ -39,7 +40,8 @@ function featuredProblem(dir) {
 
 function main() {
   const opts = parseSelection(process.argv.slice(2));
-  const files = selectedPosts(opts);
+  const { posts: files, drafts } = publishedPosts(opts);
+  for (const f of drafts) console.log(`${path.dirname(f)}/: draft, skipped`);
   let bad = 0;
   for (const f of files) {
     const p = featuredProblem(path.dirname(path.resolve(opts.root, f)));

@@ -78,3 +78,18 @@ test('nothing under content/post changed → green', () => {
   assert.equal(r.status, 0, r.out);
   assert.match(r.out, /0 post\(s\) checked/);
 });
+
+test('a post with draft: true is skipped (personal issue 25); draft: false is checked', () => {
+  const r = run(path.join(FIX, 'draft-no-visual', 'index.md'), path.join(FIX, 'visual-ok', 'index.md'));
+  assert.equal(r.status, 0, r.out);
+  assert.match(r.out, /draft-no-visual\/index\.md: draft, skipped/);
+  assert.match(r.out, /✔ diagram or picture: 1 post\(s\) checked/);
+
+  const repo = tempRepo('diagram-or-picture', path.join(FIX, 'visual-ok'));
+  repo.put('content/post/draft/index.md', path.join(FIX, 'draft-no-visual', 'index.md'));
+  repo.commit('a draft of words');
+  assert.equal(run('--root', repo.root, '--base', 'master').status, 0);
+  repo.put('content/post/draft/index.md', path.join(FIX, 'no-visual', 'index.md'));
+  repo.commit('the draft published without a picture');
+  assert.equal(run('--root', repo.root, '--base', 'master').status, 1);
+});
