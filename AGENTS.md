@@ -9,7 +9,7 @@ Hugo static site with the Wowchemy Academic theme, deployed on Netlify. Default 
 - `assets/media/`, `static/uploads/` — images and files
 - `data/themes/hedata-epu.toml`, `data/fonts/hedata-epu.toml`, `assets/scss/custom.scss` (its marked block) — **generated** from `design/tokens.json` by `scripts/generate-theme.js`; never edit them, change the tokens
 - `design/tokens.json` — a copy of the hedata-epu design tokens (plugin `hedata-epu` in agent-control; version and update steps in `design/README.md`)
-- `layouts/` — Hugo template overrides
+- `layouts/` — Hugo template overrides; not in the repo yet, created when the first override is needed
 - `exampleSite/` — Wowchemy reference content, don't edit
 - `scripts/` — the CI checks and the theme generator (node, no dependencies) and their tests under `scripts/test/`
 
