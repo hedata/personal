@@ -5,8 +5,9 @@
 // Every content/post/*/index.md must have `title`, `date`, `summary` and
 // `draft` in its YAML front matter, and `date` must parse the way Hugo reads
 // it: a YAML timestamp (YYYY-M-D, optional time, fraction and zone; month and
-// day may have one digit, as goyaml allows). And when any post has a
-// ```mermaid block, config/_default/params.yaml must say `diagram: true` —
+// day may have one digit, as goyaml allows). `title`, `subtitle` and `summary`
+// may not be the placeholder `tbd`, any case (personal issue 25). And when any
+// post has a ```mermaid block, config/_default/params.yaml must say `diagram: true` —
 // Wowchemy renders Mermaid only then (personal issue 7, EPU ADR-003).
 // No dependencies, node >= 18.
 //
@@ -21,6 +22,8 @@ const path = require('node:path');
 const { hasMermaid } = require('./lib/posts');
 
 const REQUIRED = ['title', 'date', 'summary', 'draft'];
+// Fields a placeholder must not stand in for (personal issue 25).
+const NO_PLACEHOLDER = ['title', 'subtitle', 'summary'];
 const PARAMS = path.join('config', '_default', 'params.yaml');
 
 // YAML 1.1 timestamp as goyaml (and therefore Hugo) accepts it.
@@ -103,6 +106,9 @@ function checkFile(file) {
   for (const key of REQUIRED) {
     if (!(key in fields)) problems.push(`missing ${key}`);
     else if (fields[key] === '') problems.push(`empty ${key}`);
+  }
+  for (const key of NO_PLACEHOLDER) {
+    if (key in fields && /^tbd$/i.test(fields[key])) problems.push(`${key} is the placeholder "${fields[key]}"`);
   }
   if (fields.date) {
     const p = dateProblem(fields.date);
