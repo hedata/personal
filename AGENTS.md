@@ -20,7 +20,7 @@ hugo server          # dev server with live reload (-D for drafts)
 hugo                 # production build → public/
 hugo new post/my-title/index.md   # new content (also project/, publication/)
 ./update_wowchemy.sh # update theme (hugo mod get -u && hugo mod tidy)
-node scripts/check-front-matter.js                            # every content/post/*/index.md has title, date, summary, draft; date parses; Mermaid needs diagram: true
+node scripts/check-front-matter.js                            # every content/post/*/index.md has title, date, summary, draft; date parses; no tbd placeholder; Mermaid needs diagram: true
 node scripts/check-forbidden-words.js --base origin/master    # forbidden words in the files under content/ this branch adds or changes
 node scripts/check-links.js --base origin/master              # every URL in the posts this branch adds or changes answers 2xx anonymously, GitHub links only to public repos
 node scripts/check-diagram-or-picture.js --base origin/master # each of those posts shows a Mermaid block or a picture
@@ -36,7 +36,7 @@ Netlify auto-deploys from git; build settings in `netlify.toml`.
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `master` and does only what Netlify does not. Two checks run on the whole tree, four run only on what the pull request adds or changes (`--base origin/master`, three-dot diff; on a push to `master`, the pushed range) — older posts are not their business until a pull request touches them:
 
-- **Front matter**, every `content/post/*/index.md`: `title`, `date`, `summary`, `draft` present, `date` a YAML timestamp. When any post has a `` ```mermaid `` block, `config/_default/params.yaml` must say `diagram: true` (Wowchemy renders Mermaid only then); otherwise the job fails with that hint.
+- **Front matter**, every `content/post/*/index.md`: `title`, `date`, `summary`, `draft` present, `date` a YAML timestamp, and none of `title`, `subtitle`, `summary` the placeholder `tbd` (any case). When any post has a `` ```mermaid `` block, `config/_default/params.yaml` must say `diagram: true` (Wowchemy renders Mermaid only then); otherwise the job fails with that hint.
 - **Forbidden words**, on the changed files under `content/` (whole-word, case-insensitive). The public list is `scripts/forbidden-words.txt` (the project name, e-mail addresses, private hostnames, IP addresses; a hit prints file, line and word). The private list — household, family and client names — is the repository secret `POST_FORBIDDEN_WORDS`, one entry per line, same syntax, optional; a hit prints file and line only, never the word, and an entry that is not a valid regular expression fails the job naming only its position in the list.
 - **Public links only**, on the changed posts: every `http(s)` URL is fetched anonymously (plain `curl`, no token, redirects followed, 15 s timeout); anything but 2xx fails with file, line and URL. A link into `github.com/hedata/<repo>` must also name a repo listed in `scripts/public-repos.txt` (one name per line, currently `personal`) — so a private repo fails whatever GitHub answers. Add a repo there only once it is public.
 - **At least one diagram or picture**, on the changed posts: the body has a `` ```mermaid `` block, a markdown image (`![…](…)`), an `<img>` or a figure / image / gallery / diagram shortcode — else "post has no diagram or picture".

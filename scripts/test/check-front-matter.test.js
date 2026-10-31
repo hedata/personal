@@ -54,3 +54,11 @@ test('a post with a Mermaid block needs diagram: true in the site config', () =>
   r = run('--root', path.join(FIXTURES, 'site-diagram-off'), path.join(FIX, 'valid', 'index.md'));
   assert.equal(r.status, 0, r.out, 'no Mermaid, no requirement');
 });
+
+test('a post whose title, subtitle or summary is "tbd" fails, any case', () => {
+  const r = run(path.join(FIX, 'tbd-placeholder', 'index.md'));
+  assert.equal(r.status, 1, r.out);
+  assert.match(r.out, /tbd-placeholder\/index\.md: title is the placeholder "TBD"/);
+  assert.match(r.out, /tbd-placeholder\/index\.md: subtitle is the placeholder "tbd"/);
+  assert.match(r.out, /tbd-placeholder\/index\.md: summary is the placeholder "tbd"/);
+});
