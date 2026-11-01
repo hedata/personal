@@ -5,7 +5,8 @@
 // Every post this pull request adds or changes must show at least one
 // diagram or picture in its body: a ```mermaid block, a markdown image
 // (`![alt](…)`), an `<img>` tag, or a figure / image / gallery / diagram
-// shortcode. Otherwise: "post has no diagram or picture".
+// shortcode. Otherwise: "post has no diagram or picture". Posts with
+// `draft: true` are skipped — not published, so no picture yet (personal issue 25).
 //
 //   node scripts/check-diagram-or-picture.js --base origin/master   # PR: posts changed since the merge-base
 //   node scripts/check-diagram-or-picture.js --range BEFORE..AFTER   # push: posts changed by the pushed commits
@@ -14,7 +15,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { parseSelection, selectedPosts, body, hasMermaid } = require('./lib/posts');
+const { parseSelection, publishedPosts, body, hasMermaid } = require('./lib/posts');
 
 const IMAGE_RE = /!\[|<img\b|\{\{[<%]\s*(?:figure|image|gallery|diagram)\b/;
 
@@ -24,7 +25,8 @@ function hasDiagramOrPicture(text) {
 
 function main() {
   const opts = parseSelection(process.argv.slice(2));
-  const files = selectedPosts(opts);
+  const { posts: files, drafts } = publishedPosts(opts);
+  for (const f of drafts) console.log(`${f}: draft, skipped`);
   const bad = files.filter((f) => !hasDiagramOrPicture(fs.readFileSync(path.resolve(opts.root, f), 'utf8')));
   for (const f of bad) {
     console.log(`${f}: post has no diagram or picture (no \`\`\`mermaid block, ![image](…), <img> or {{< figure >}} shortcode)`);

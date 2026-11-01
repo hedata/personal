@@ -1,8 +1,8 @@
 ---
 title: Continous integration and continous development for my home setup
-subtitle: tbd
+subtitle: Replacing manual SSH deploys of a single-server docker-compose setup with a GitHub Actions pipeline.
 date: 2021-11-30T00:09:04.225Z
-summary: tbd
+summary: A plan to build Docker images in GitHub Actions, push them to a registry and have the pipeline pull them on the deployment machine over SSH, instead of setting up Kubernetes.
 draft: true
 featured: false
 authors:

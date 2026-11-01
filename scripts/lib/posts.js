@@ -80,6 +80,22 @@ function body(text) {
   return end === -1 ? text : lines.slice(end + 1).join('\n');
 }
 
+// True when the front matter says `draft: true` (quoted or not, any case).
+// The picture gates skip drafts: a draft is not published, so it needs no
+// picture yet; the front-matter, forbidden-words and links gates still check
+// it (personal issue 25).
+function isDraft(text) {
+  const lines = text.split(/\r?\n/);
+  if (lines[0] !== '---') return false;
+  const end = lines.indexOf('---', 1);
+  if (end === -1) return false;
+  for (const line of lines.slice(1, end)) {
+    const m = /^draft:\s*(.*)$/.exec(line);
+    if (m) return /^(["']?)true\1$/i.test(m[1].replace(/\s+#.*$/, '').trim());
+  }
+  return false;
+}
+
 // A Mermaid block as Wowchemy renders it: a ```mermaid (or ~~~mermaid) fence.
 const MERMAID_RE = /^[ \t]*(`{3,}|~{3,})[ \t]*\{?\.?mermaid\b/m;
 
@@ -87,4 +103,15 @@ function hasMermaid(text) {
   return MERMAID_RE.test(body(text));
 }
 
-module.exports = { parseSelection, changedFiles, changedPosts, selectedPosts, body, hasMermaid };
+// selectedPosts split into the posts a picture gate checks and the drafts it
+// skips (see isDraft).
+function publishedPosts(opts) {
+  const posts = [];
+  const drafts = [];
+  for (const f of selectedPosts(opts)) {
+    (isDraft(fs.readFileSync(path.resolve(opts.root, f), 'utf8')) ? drafts : posts).push(f);
+  }
+  return { posts, drafts };
+}
+
+module.exports = { parseSelection, changedFiles, changedPosts, selectedPosts, publishedPosts, body, hasMermaid, isDraft };

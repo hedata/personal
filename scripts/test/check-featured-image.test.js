@@ -81,3 +81,20 @@ test('--base checks the post folders the branch touched (any file in them), not 
   assert.equal(r.status, 1, r.out);
   assert.match(r.out, /^content\/post\/old-post\/: featured image without source/m);
 });
+
+test('a post with draft: true is skipped (personal issue 25), however it is quoted', () => {
+  const r = run(path.join(FIX, 'draft-no-visual', 'index.md'));
+  assert.equal(r.status, 0, r.out);
+  assert.match(r.out, /draft-no-visual\/: draft, skipped/);
+  assert.match(r.out, /✔ featured image: 0 post\(s\) checked/);
+
+  const { isDraft } = require('../lib/posts');
+  for (const yes of ['true', 'True', '"true"', "'true'", 'true # not yet']) {
+    assert.equal(isDraft(`---\ntitle: t\ndraft: ${yes}\n---\nx`), true, yes);
+  }
+  for (const no of ['false', '', 'truthy']) {
+    assert.equal(isDraft(`---\ntitle: t\ndraft: ${no}\n---\nx`), false, no);
+  }
+  assert.equal(isDraft('---\ntitle: t\n---\ndraft: true'), false, 'the body does not count');
+  assert.equal(isDraft('---\nnested:\n  draft: true\n---\nx'), false, 'a nested key does not count');
+});
