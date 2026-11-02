@@ -7,7 +7,7 @@ name: Assign PR to maintainer
 # write access for dependabot-authored PRs too; nothing from the PR is
 # checked out or executed.
 #
-# Rule (core issue 68, https://github.com/hedata/core/issues/68): the maintainer
+# Rule (core issue 68, in a private repository): the maintainer
 # is assigned only where they act. personal is maintainer-merged, so every PR
 # gets assignee + review request together (no review request when the owner
 # opened it: GitHub rejects self-review). Issues (e.g. `pitch`) are untouched.
