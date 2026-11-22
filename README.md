@@ -13,7 +13,8 @@ The source of [reboting.com](https://reboting.com/), the personal page of Erich 
 ## How posts get here
 
 - An agent writes each post from a pitch the maintainer picked, on a branch, as a pull request.
-- Every pull request passes five CI gates (`scripts/check-*.js`, run by [`.github/workflows/ci.yml`](.github/workflows/ci.yml)): the front matter is complete, no forbidden word (private names, addresses, hosts), every link answers anonymously and points only at public repositories, the post shows a diagram or a picture, and the featured image is checked in with its source.
+- Every pull request passes five CI gates on its posts (five of the `scripts/check-*.js`, run by [`.github/workflows/ci.yml`](.github/workflows/ci.yml)): the front matter is complete, no forbidden word (private names, addresses, hosts), every link answers anonymously and points only at public repositories, the post shows a diagram or a picture, and the featured image is checked in with its source.
+- Two more checks run on every pull request: the generated theme files match the tokens, and the architecture page keeps its shape (`scripts/check-architecture-page.js`).
 - The maintainer reads the deploy preview and merges; Netlify publishes `master`.
 
 ## Working on it
@@ -27,7 +28,7 @@ node scripts/check-front-matter.js                            # one of the five 
 node scripts/generate-theme.js --check design/tokens.json     # the generated theme files match the tokens
 ```
 
-Layout, every command, the CI gates in detail and the conventions: [`AGENTS.md`](AGENTS.md).
+Layout, every command, the CI gates in detail and the conventions: [`AGENTS.md`](AGENTS.md). How the site and its post flow are shaped, and what it still lacks against the readiness bar: [`docs/architecture.md`](docs/architecture.md).
 
 ## Licence
 
